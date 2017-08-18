@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta name="author" content="All-Union.com.cn">
+  <title>登陆</title>
+  <meta name="keywords" content="关键字">
+  <meta name="description" content="描述">
+  <link rel="stylesheet" href="plugins/theme/css/custom-bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+
+  <style>
+    *:not(.fa) {
+      font-family: '微软雅黑', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    }
+    .login-box {
+      margin: 10% auto;
+    }
+    .login-logo {
+      padding: 0 0 0 25px;
+      margin: 0;
+    }
+    .login-logo a {
+      color: #ffffff;
+      text-align: left;
+    }
+    .login-box-body {
+      background-color: #5c6e82;/*红色背景4d4d64*/
+    }
+    h6 {
+      color: #ffffff;
+    }
+    input {
+      background-color: #5c6e82!important;/*红色背景575775*/
+      color: #b4c1ce!important;
+    }
+    input::-webkit-input-placeholder { /* WebKit browsers */
+      background-color: #5c6e82!important;/*红色背景575775*/
+      color: #b4c1ce!important;
+    }
+    input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      background-color: #5c6e82!important;/*红色背景575775*/
+      color: #b4c1ce!important;
+    }
+    input::-moz-placeholder { /* Mozilla Firefox 19+ */
+      background-color: #5c6e82!important;/*红色背景575775*/
+      color: #b4c1ce!important;
+    }
+    input:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color:  #b4c1ce !important;
+      background-color: #5c6e82 !important;/*红色背景575775*/
+    }
+    .form-group.has-feedback {
+      border: 1px solid #3c4b5a;/*红色背景3e3e52*/
+      padding-right: 0px;
+      padding-left: 45px;
+      border-radius: 3px;
+    }
+    .form-control-feedback {
+      left: 0;
+      right: auto;
+      background-color: #4a5e73;/*红色背景4d4d64*/
+      color:  #b4c1ce !important;
+    }
+    input {
+      padding: 0!important;
+      border: none !important;
+    }
+    button.btn {
+      background-color: #2aba9c;
+      /*蓝色0894d5*/
+      /*红色db4c3f*/
+      color: #ffffff;
+
+    }
+    button.btn:hover {
+      color:  #b4c1ce !important;
+    }
+  </style>
+</head>
+  <body class="hold-transition login-page" style="background-color: #5c6e82;"><!--/*红色背景4d4d64*/-->
+    <div class="login-box">
+      <div class="login-logo">
+        <a ><b>都能付</b> 商户自助系统</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+
+        <form id="loginForm" action="../index.html" method="post">
+          <div class="form-group has-feedback">
+            <span class="fa fa-phone form-control-feedback"></span>
+            <input id="telPhoneNum" name="telPhoneNum" type="text" class="form-control" placeholder="商户手机号" maxlength="11">
+
+          </div>
+          <div class="form-group has-feedback">
+            <span class="fa fa-lock form-control-feedback"></span>
+            <input id="loginPass" name="loginPass" type="password" class="form-control" placeholder="登录密码" maxlength="20">
+
+          </div>
+      </form>
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-block btn-flat">登录</button>
+          </div>
+        </div>
+        <h6 class="text-center">北京众联享付科技股份有限公司</h6>
+
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+
+    <script src="plugins/theme/bootstrap/bootstrap.min.js"></script>
+
+  </body>
+</html>

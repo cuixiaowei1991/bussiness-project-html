@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>添加TMS信息</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+	</head>
+	<!-- Main content -->
+	<section class="content">
+		<h2 class="page-header">添加TMS信息</h2>
+		<div class="box">
+			<div class="box-header ">
+				<form class="form-horizontal" id="signupForm" method="get" action="">
+					<div class="form-group">
+						<label class="col-xs-2 control-label">厂商：</label>
+						<div class="col-xs-8">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat manuFacturerList" name="manuFacturerList">全部厂商</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namemanu">
+									<span class="caret"></span>
+									<span class="sr-only">全部厂商</span>
+								</button>
+								<ul class="dropdown-menu" id="manuFacturerList" role="menu">
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat modelFun" name="tmsModelsname">全部机型</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="nametms">
+									<span class="caret"></span>
+									<span class="sr-only">全部机型</span>
+								</button>
+								<ul class="dropdown-menu" id="modelFun" role="menu">
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-xs-2 control-label">程序类型：</label>
+						<div class="col-xs-8">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat programType" name="programType" data-value="2">请选择程序类型</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="nameprogram">
+									<span class="caret"></span>
+									<span class="sr-only"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="programType">
+									<li data-value="0">
+										<a>主控</a>
+									</li>
+									<li data-value="1">
+										<a>应用</a>
+									</li>
+									<li data-value="2">
+										<a>参数</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">版本号：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入版本号" id="tmsVernum" name="tmsVernum" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">应用名称：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入应用名称" id="tmsApplicationname" name="tmsApplicationname" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">更新文件：</label>
+						<div class="col-xs-4">
+							<ul class="products-list product-list-in-box">
+								<!--<li class="item">
+									<div class="imageList1">
+										<div class="syncouponspac ImgUp-group">
+											<div class="ImgUp-btn-group">
+												<span class="btn btn-success fileinput-button" id="picUp">
+				                                    <i class="glyphicon glyphicon-plus"></i>
+				                                   	<span>选择文件</span>
+												<input id="" type="file" name="files[]" data-index="{{orderIndex}}" multiple name="namefile">
+												</span>
+												<span class="errorInfo" style="display: none">
+													请选择文件
+												</span>
+												<span id="FileName">
+												</span>
+											</div>
+
+										</div>
+									</div>
+								</li>-->
+								<li>
+									<div class=" mailbox-attachment-info">
+										<input style="display: none;" data-string='apiclient_key.pem' id="apiclient_key_pem_view" name="apiclient_key_pem" />
+										<!-- 文件上传返回信息显示区 -->
+										<a class="mailbox-attachment-name files apiclient_key_pem"><i class="fa fa-paperclip"></i>选择文件</a>
+										<div class="progress progress-xxs">
+											<!-- 文件上传进度条 -->
+											<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+										</div>
+										<span class="mailbox-attachment-size">文件类型为.xlsx格式
+                                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                                  <i class="fa fa-plus"></i>
+                                               <input type="file" data-index="0"  id="apiclient_key" name="apiclient_key">
+                                                  </span>
+										</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">更新内容：</label>
+						<div class="col-xs-4">
+							<textarea class="form-control" placeholder="" id="tmsUpdatecontent" name="tmsUpdatecontent" maxlength="128"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">状态：</label>
+
+						<div class="col-xs-4">
+							<label class="control-label">
+								<input type="checkbox" id="tmsState" checked="true" name="nametms">启用</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-2 col-xs-6">
+							<button type="" class="btn btn-primary" id="sureSubmit">确定提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /.box-header -->
+		</div>
+		<!-- /.box -->
+	</section>
+	<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+	<script src="../../plugins/theme/js/app.min.js"></script>
+	<script src="../../plugins/common/common.js"></script>
+	<script src="../../plugins/theme/js/index_flot.js"></script>
+	<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+	<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+	<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+	<script src="../../plugins/common/regularHelper.js"></script>
+
+	<!--本页面需要的JS文件-->
+	<script src="../../plugins/common/mustache.min.js"></script>
+	<script src="../../plugins/common/dataHelper.js"></script>
+	<script src="../../plugins/common/controlsHelper.js"></script>
+	<script src="../../interfaceJs/systemUserServer.js"></script>
+	<script src="../../interfaceJs/businessTmsServer.js"></script>
+	<script src="../../plugins/common/TMSTypeHelper.js"></script>
+	<script src="../../js/TmsManage/TmsAdd.js"></script>
+	<script>
+	</script>
+	</body>
+
+</html>

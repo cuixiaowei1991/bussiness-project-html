@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>查看门店详情页面</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css">
+
+	</head>
+
+	<body>
+		<section class="content">
+			<h4 class="page-header"><span id="Title"></span>详情页</h4>
+			<div class="box-header">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="nav-tabs-custom">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#tab_1" data-toggle="tab">门店进件信息</a>
+								</li>
+								<li>
+									<a href="#tab_2" data-toggle="tab">门店配置信息</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="tab_1">
+
+									<div class="box-header with-border">
+										<div class="border-left-info">
+											<p>门店基本信息</p>
+										</div>
+									</div>
+									<div class="box-body">
+										<form class="form-horizontal" method="get">
+											<div class="form-group">
+												<label class="col-xs-2 text-right">门店编号：</label>
+												<div class="col-xs-4" id="shopIdNum"></div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-xs-2 text-right">商户企业全称：</label>
+												<div class="col-xs-4" id="storeName"></div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-xs-2 text-right">所属商户：</label>
+												<div class="col-xs-4" id="merchantName"></div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-xs-2 text-right">地址：</label>
+												<div class="col-xs-4" id="storeAddress"></div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-xs-2 text-right">网点经纬度：</label>
+												<div class="col-xs-4" id="locationTude"></div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-xs-2 text-right">营业时间：</label>
+												<div class="col-xs-4" id="businessHours">09:00-22:00</div>
+											</div>
+											<div class="form-group">
+												<label class="col-xs-2 text-right"></label>
+
+												<div class="col-xs-10">
+													<dd id="imageList">
+														<div class="pull-left margin-r-5">
+															<p></p>
+															<img src="" data-imgName="" data-imgPath="" width="200" height="300">
+															<br>
+															<br><span data-imgPath=""></span>
+														</div>
+														<div class="pull-left margin-r-5">
+															<p></p>
+															<img src="" data-imgName="" data-imgPath="" width="200" height="300">
+															<br>
+															<br><span data-imgPath=""></span>
+														</div>
+														<div class="pull-left margin-r-5">
+															<p></p>
+															<img src="" data-imgName="" data-imgPath="">
+															<br>
+															<br><span data-imgPath=""></span>
+														</div>
+													</dd>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-xs-2 text-right">客服电话：</label>
+												<div class="col-xs-4" id="servicePhone"></div>
+											</div>
+											<!--<div class="form-group">
+												<label class="col-xs-2 text-right">来源：</label>
+												<div class="col-xs-4">代理商自助</div>
+											</div>-->
+											<div class="form-group">
+												<label class="col-xs-2 text-right">发布人：</label>
+												<div class="col-xs-4" id="storeCreateName"></div>
+											</div>
+											<div class="form-group">
+												<label class="col-xs-2 text-right">创建时间：</label>
+												<div class="col-xs-4" id="storeCreateTime"></div>
+											</div>
+											<div class="form-group">
+												<label class="col-xs-2 text-right">上次修改时间：</label>
+												<div class="col-xs-4" id="storeUpdateTime"></div>
+											</div>
+											<div class="form-group">
+												<label class="col-xs-2 text-right">操作人：</label>
+												<div class="col-xs-4" id="storeUpdateName"></div>
+											</div>
+										</form>
+									</div>
+									<div class="box-header with-border">
+										<div class="border-left-info">
+											<p>门店状态信息</p>
+										</div>
+									</div>
+									<div class="box-body">
+										<div class="col-xs-12 "></div>
+										<form class="form-horizontal" id="" method="get">
+											<div class="form-group">
+												<label class="col-xs-2 text-right">当前状态：</label>
+												<div class="col-xs-4 text-orange" id="storeStatus"></div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="tab-pane" id="tab_2">
+									<div class="box-header with-border">
+										<div class="border-left-info">
+											<p>POS终端配置<span class="text-gray">(注：PID为终端号，YID为POS业务编号)</span></p>
+										</div>
+										<div>
+											<span class="text-muted">共<span class="total"></span>条，每页<span>20</span>条 </span>
+
+											<button class="btn btn-primary btn-sm pull-right" id="addPos">添加POS终端</button>
+										</div>
+									</div>
+
+									<div class="box-body no-padding">
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>终端信息</th>
+													<th>POS类型</th>
+													<th>归属</th>
+													<th>配件归属</th>
+													<th>关联终端信息</th>
+													<th>状态</th>
+													<th>应用系统</th>
+													<th>配置时间</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody id="dictList">
+											</tbody>
+										</table>
+									</div>
+									<div class="box-footer">
+										<div class="pagination no-margin pull-right" id="shotePage">
+											<a href="#" class="first" data-action="first">&laquo;</a>
+											<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+											<input type="text" readonly="readonly" data-max-page="40" />
+											<a href="#" class="next" data-action="next">&rsaquo;</a>
+											<a href="#" class="last" data-action="last">&raquo;</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+		<section class="pop center-text" data-pop="pop5" id="pop5">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">支付宝联鑫付</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="signupForm" method="get" action="">
+								<div class="form-group">
+									<label class="col-xs-2 control-label">POS商户号：</label>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" id="merchaCode" name="merchaCode" placeholder="" maxlength="15">
+									</div>
+								</div>
+								<div class="form-group">
+									<span class="text-gray col-xs-2 col-xs-offset-2">POS商户号为15位商户编号</span>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">POS终端号：</label>
+									<div class="col-xs-3">
+										<input type="text" id="termCode1" class="form-control" name="termCode" placeholder="" maxlength="8">
+									</div>
+								</div>
+								<div class="form-group hideGroup">
+									<label class="col-xs-2 control-label">应用系统：</label>
+									<div class="col-xs-8 checkboxLH payChannel">
+										<!--<label><input type="radio" data-value='0' name="s" checked="checked"/>allpay　</label>
+								<label><input type="radio" data-value='1' name="s"/>浦发　</label>
+								<label><input type="radio" data-value='2' name="s"/>荣邦　</label>
+								<label><input type="radio" data-value='3' name="s"/>银盛　</label>-->
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">状态：</label>
+									<div class="col-xs-1">
+										<label for="kai">
+											<input type="checkbox" id="kai" name="kai" />开启</label>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+							<button type="button" class="btn btn-primary" id="passbtn1">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--删除-->
+		<div class="modal fade" role="dialog" id="popdelete">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title text-red" id="">删除</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-4 control-label center-text">是否确定删除此条信息？</label>
+							</div>
+
+						</div>
+					</div>
+					<div class="modal-footer text-right">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="sureDeleteBtn">确定</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/jQueryValidate/additional-methods.min.js"></script>
+		<!--本页面需要的JS文件-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/regularHelper.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../plugins/common/regionHelper.js"></script>
+		<script src="../../plugins/common/dataValueHelper.js"></script>
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../interfaceJs/businessPosServer.js"></script>
+		<script src="../../js/StoreManage/StoreView.js"></script>
+
+		<!--tbody的展示信息-->
+		<script id="dictListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>
+					{{termCode}}(PID)
+					<br /> {{merchCode}}(YID)
+				</td>
+				<td class="postype" data-code='{{posType}}'>
+				</td>
+				<td>{{归属}}</td>
+				<td>{{peijianPosParterName}}</td>
+				<td>
+					{{superTermCode}}
+				</td>
+				<td data-id='{{terminalState}}'>{{isStart}}</td>
+				<td data-id='{{payChannel}}'>{{payChannelName}}</td>
+				<td data-time='{{posCreateTime}}'>
+					{{time}}
+				</td>
+				<td>
+					<a><span class="label label-info update" data-id='{{posId}}'>修改</span></a>
+					<a><span class="label label-info super" data-id='{{posId}}' data-store='{{storeId}}' data-merchant='{{merchantId}}' data-id='{{posId}}' data-postype='{{posType}}' data-payChannel='{{payChannel}}' style="display: none;">关联</span></a>
+					<a><span class="label label-info delete" data-toggle="modal" data-target="#popdelete" data-id='{{posId}}'>删除</span></a>
+				</td>
+			</tr>
+			{{/lists}}
+
+		</script>
+
+	</body>
+
+</html>

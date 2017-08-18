@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>修改支付宝口碑-门店关联配置</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+	</head>
+	<!-- Main content -->
+	<section class="content">
+		<h2 class="page-header">修改支付宝口碑-门店关联配置</h2>
+		<div class="box">
+			<div class="nav-tabs-custom">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#tab_1" data-toggle="tab">基本信息</a>
+					</li>
+					<li>
+						<a href="#tab_2" data-toggle="tab">上传资质</a>
+					</li>
+				</ul>
+				<form class="tab-content" id="SignupForm">
+					<div class="tab-pane active" id="tab_1">
+						<div class="box-header ">
+							<div class="form-horizontal" method="get" action="">
+								<div class="form-group">
+									<label class="col-xs-2 control-label">系统内门店编号 ：</label>
+									<div class="col-xs-4">
+										<input type="text" disabled="" class="form-control" id="storeCode" name="storeCode" maxlength="128">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">品牌名称 *：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="输入品牌名称" id="mhtName" name="mhtName" maxlength="128">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										不填写则默认为“其它品牌”，示例 肯德基
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">行业类目 * ：</label>
+
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat FirstMhtIndustry" name="FirstMhtIndustry" data-value=''>全部信息</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only">全部信息</span>
+											</button>
+											<ul class="dropdown-menu" id="FirstMhtIndustry" role="menu">
+
+											</ul>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat SecondMhtIndustry" name="SecondMhtIndustry" data-value=''>全部信息</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only">全部信息</span>
+											</button>
+											<ul class="dropdown-menu" id="SecondMhtIndustry" role="menu">
+
+											</ul>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat ThirdMhtIndustry" name="ThirdMhtIndustry" data-value=''>全部信息</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only">全部信息</span>
+											</button>
+											<ul class="dropdown-menu" id="ThirdMhtIndustry" role="menu">
+
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="form-group" id="BrandLogo">
+									<label class="col-xs-2 control-label">品牌LOGO：</label>
+									<div class="col-xs-4">
+										<img class="mailbox-attachment-icon brandLogoImgName" src="../../plugins/theme/img/nopic.jpg">
+										<div class=" mailbox-attachment-info">
+											<input style="display: none;" id="brandLogoImgName" name="brandLogoImgName" />
+											<!-- 文件上传返回信息显示区 -->
+											<a href="" class="mailbox-attachment-name files brandLogoImg"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+											<div class="progress progress-xxs">
+												<!-- 文件上传进度条 -->
+												<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+											</div>
+											<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="brandLogoImg" name="brandLogoImg" multiple>
+                                 </span>
+											</span>
+
+										</div>
+										<p class="text-warning">不填写则默认为门店首图main_image</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">主门店名 *：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="输入主门店名" id="storeMainName" name="storeMainName" maxlength="128">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										仅为商户名,如:国美、麦当劳,不应包含地 区、地址、分店名等信息,错误示例:北京国美
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">分店名称：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="输入分店名称" id="storeFName" name="storeFName" maxlength="128">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 ">
+										<p class="text-warning">比如：万塘路店，与主门店名合并在客户端显示为：肯德基(万塘路店)</p>
+										<p class="text-bold text-red">备注:必须与门头照一字不差</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">地址：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat province" name="province">省</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="nameprovince">
+												<span class="caret"></span>
+												<span class="sr-only">省</span>
+											</button>
+											<ul class="dropdown-menu" id="province" role="menu">
+
+											</ul>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat city" name="city">市</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecity">
+												<span class="caret"></span>
+												<span class="sr-only">市</span>
+											</button>
+											<ul class="dropdown-menu" id="city" role="menu">
+
+											</ul>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat county" name="county">县</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecounty">
+												<span class="caret"></span>
+												<span class="sr-only">县</span>
+											</button>
+											<ul class="dropdown-menu" id="county" role="menu">
+
+											</ul>
+										</div>
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="输入详细地址" id="address" name="address" maxlength="128">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										不含省市县 示例：万塘路18号黄龙时代广场
+									</div>
+								</div>
+								<div class="form-group" id="menuColumn">
+									<label class="col-xs-2 control-label">经纬度 *：</label>
+
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="请输经纬度" id="latitude" name="latitude" maxlength="30">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4">
+										<a href="http://lbs.amap.com/console/show/picker" target="_blank" class="text-warning">打开高德地图坐标选取器</a>
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">门店电话：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="请输入门店电话" id="storePhone" name="storePhone" maxlength="11">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										支持座机和手机，只支持数字和+-号， 支持多个电话， 以英文逗号分隔
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">营业时间：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="请输入营业时间" id="businessTime" name="businessTime" maxlength="11">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										示例:8:00-24:00
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">人均消费(元)：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="请输入人均消费" id="avgPrice" name="avgPrice" maxlength="5">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										最少1元，最大不超过99999元
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">服务设施：</label>
+									<div class="col-xs-4">
+										<label class="control-label">
+											<input type="checkbox" id="isWifi" name="isWifi">有WIFI</label>
+										<label class="control-label">
+											<input type="checkbox" id="isParking" name="isParking">有停车处</label>
+										<label class="control-label">
+											<input type="checkbox" id="isNoSmoking" name="isNoSmoking">有无烟区</label>
+										<label class="control-label">
+											<input type="checkbox" id="isBox" name="isBox">有包厢</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">其他服务信息：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="请输入其他服务信息" id="valueAdded" name="valueAdded" maxlength="11">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										门店其他的服务，门店与用户线下兑现 示例：生日专享：生日当天美甲享半价优惠 拉新送：推荐朋友送一次免费的美甲机会
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="tab-pane" id="tab_2">
+						<div class="box-header ">
+							<div class="form-horizontal">
+								<div class="form-group" id="StoreImg">
+									<label class="col-xs-2 control-label">门店首图 *：</label>
+									<div class="col-xs-4">
+										<img class="mailbox-attachment-icon storeFirstImgName" src="../../plugins/theme/img/nopic.jpg">
+										<div class=" mailbox-attachment-info">
+											<input style="display: none;" id="storeFirstImgName" name="storeFirstImgName" />
+											<!-- 文件上传返回信息显示区 -->
+											<a href="" class="mailbox-attachment-name files storeFirstImg"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+											<div class="progress progress-xxs">
+												<!-- 文件上传进度条 -->
+												<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+											</div>
+											<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="storeFirstImg" name="storeFirstImg" multiple>
+                                 </span>
+											</span>
+
+										</div>
+										<p class="text-warning">搜索页左侧的图，推荐使用优质效果的图（不一定要使用门头照），推荐尺寸2000*1500</p>
+									</div>
+								</div>
+
+								<div class="form-group" id="StoreTouImg">
+									<label class="col-xs-2 control-label">门店审核图（门头照片）*：</label>
+									<div class="col-xs-4">
+										<img class="mailbox-attachment-icon storeTouImgName" src="../../plugins/theme/img/nopic.jpg">
+										<div class=" mailbox-attachment-info">
+											<input style="display: none;" id="storeTouImgName" name="storeTouImgName" />
+											<!-- 文件上传返回信息显示区 -->
+											<a href="" class="mailbox-attachment-name files storeTouImg"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+											<div class="progress progress-xxs">
+												<!-- 文件上传进度条 -->
+												<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+											</div>
+											<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="storeTouImg" name="storeTouImg" multiple>
+                                 </span>
+											</span>
+
+										</div>
+										<p class="text-warning">搜索页左侧的图，推荐使用优质效果的图（不一定要使用门头照），推荐尺寸2000*1500</p>
+									</div>
+								</div>
+
+								<div class="form-group" id="StoreNeiImg">
+									<label class="col-xs-2 control-label">门店审核图（内景照片）*：</label>
+									<div class="col-xs-10">
+										<div class="col-xs-4">
+											<img class="mailbox-attachment-icon storeNeiImgName" src="../../plugins/theme/img/nopic.jpg">
+											<div class=" mailbox-attachment-info">
+												<input style="display: none;" id="storeNeiImgName" name="storeNeiImgName" />
+												<!-- 文件上传返回信息显示区 -->
+												<a href="" class="mailbox-attachment-name files storeNeiImg"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+												<div class="progress progress-xxs">
+													<!-- 文件上传进度条 -->
+													<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+												</div>
+												<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="storeNeiImg" name="storeNeiImg" multiple>
+                                 </span>
+												</span>
+
+											</div>
+
+										</div>
+										<div class="col-xs-4">
+											<img class="mailbox-attachment-icon storeNeiImg2Name" src="../../plugins/theme/img/nopic.jpg">
+											<div class=" mailbox-attachment-info">
+												<input style="display: none;" id="storeNeiImg2Name" name="storeNeiImg2Name" />
+												<!-- 文件上传返回信息显示区 -->
+												<a href="" class="mailbox-attachment-name files storeNeiImg2"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+												<div class="progress progress-xxs">
+													<!-- 文件上传进度条 -->
+													<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+												</div>
+												<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="storeNeiImg2" name="storeNeiImg2" multiple>
+                                 </span>
+												</span>
+
+											</div>
+
+										</div>
+										<p class="text-warning col-xs-12">门店审核时需要的图片， 至少包含一张门头照片，两张内景照片，必须反映真实的门店情况，审核才能够通过</p>
+									</div>
+								</div>
+
+								<div class="form-group" id="LicenceImg">
+									<label class="col-xs-2 control-label">营业执照图：</label>
+									<div class="col-xs-4">
+										<img class="mailbox-attachment-icon licenceImgName" src="../../plugins/theme/img/nopic.jpg">
+										<div class=" mailbox-attachment-info">
+											<input style="display: none;" id="licenceImgName" name="licenceImgName" />
+											<!-- 文件上传返回信息显示区 -->
+											<a href="" class="mailbox-attachment-name files organization"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+											<div class="progress progress-xxs">
+												<!-- 文件上传进度条 -->
+												<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+											</div>
+											<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="licenceImg" name="licenceImg" multiple>
+                                 </span>
+											</span>
+
+										</div>
+										<p class="text-warning">是否必填依赖于行业资质要求</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">营业执照注册号 * ：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="输入营业执照注册号" id="licenceCode" name="licenceCode" maxlength="20">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										是否必填依赖于行业资质要求
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-xs-2 control-label">营业执照名称 * ：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="输入营业执照名称 " id="licenceName" name="licenceName" maxlength="128">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										必须与营业执照上名称一字不差
+									</div>
+								</div>
+								<div class="form-group" id="CertificateImg">
+									<label class="col-xs-2 control-label">经营许可证图：</label>
+									<div class="col-xs-4">
+										<img class="mailbox-attachment-icon certificateImgName" src="../../plugins/theme/img/nopic.jpg">
+										<div class=" mailbox-attachment-info">
+											<input style="display: none;" id="certificateImgName" name="certificateImgName" />
+											<!-- 文件上传返回信息显示区 -->
+											<a href="" class="mailbox-attachment-name files organization"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+											<div class="progress progress-xxs">
+												<!-- 文件上传进度条 -->
+												<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+											</div>
+											<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="certificateImg" name="certificateImg" multiple>
+                                 </span>
+											</span>
+
+										</div>
+										<p class="text-warning">经营许可证照片，依赖于行业资质要求</p>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-xs-2 control-label">经营许可证有效期：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="输入经营许可证有效期" id="certificateExpires" name="certificateExpires" maxlength="128">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 ">
+										<p class="text-warning">格式：2020-03-20</p>
+									</div>
+								</div>
+								<div class="form-group" id="AuthLetterImg">
+									<label class="col-xs-2 control-label">门店授权函图：</label>
+									<div class="col-xs-4">
+										<img class="mailbox-attachment-icon authLetterImgName" src="../../plugins/theme/img/nopic.jpg">
+										<div class=" mailbox-attachment-info">
+											<input style="display: none;" id="authLetterImgName" name="authLetterImgName" />
+											<!-- 文件上传返回信息显示区 -->
+											<a href="" class="mailbox-attachment-name files authLetterImg"><i class="fa fa-paperclip"></i> 选择图片</a>
+
+											<div class="progress progress-xxs">
+												<!-- 文件上传进度条 -->
+												<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+											</div>
+											<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" id="authLetterImg" name="authLetterImg" multiple>
+                                 </span>
+											</span>
+
+										</div>
+										<p class="text-warning">门店授权函，签约账号法人与门店营业执照法人不一致时需要</p>
+									</div>
+								</div>
+								<div class="form-group" id="menuColumn">
+									<label class="col-xs-2 control-label">开发者返佣ID：</label>
+
+									<div class="col-xs-4">
+										<input type="text" disabled="disabled" class="form-control" id="isYuId" name="isYuId" maxlength="30">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">收款成功短信接收手机号：</label>
+									<div class="col-xs-4">
+										<input type="text" class="form-control" placeholder="请输入收款成功短信接收手机号" id="notifyPhone" name="notifyPhone" maxlength="11">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label"></label>
+									<div class="col-xs-4 text-warning">
+										用于接收门店状态变更通知，收款成功通知等通知消息， 不在客户端展示
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-xs-offset-2 col-xs-6">
+										<button type="button" class="btn btn-primary" id="SubmitCreate" name="SubmitCreate">提交修改</button>
+									</div>
+								</div>
+
+				</form>
+				</div>
+
+				</div>
+				</div>
+				</form>
+
+				<!-- /.box-header -->
+			</div>
+			<!-- /.box -->
+	</section>
+	<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+	<script src="../../plugins/theme/js/app.min.js"></script>
+	<script src="../../plugins/common/common.js"></script>
+	<script src="../../plugins/theme/js/index_flot.js"></script>
+
+	<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+	<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+	<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+	<script src="../../plugins/common/regularHelper.js"></script>
+
+	<!--本页面需要的脚本-->
+	<script src="../../plugins/common/mustache.min.js"></script>
+	<script src="../../plugins/common/dataHelper.js"></script>
+	<script src="../../plugins/common/regionHelper.js"></script>
+	<script src="../../plugins/common/controlsHelper.js"></script>
+	<script src="../../plugins/common/dataValueHelper.js"></script>
+
+	<script src="../../plugins/common/allpayFunctionHelper.js"></script>
+	<script src="../../interfaceJs/systemUserServer.js"></script>
+	<script src="../../interfaceJs/zfbInfoServer.js"></script>
+	<script src="../../js/AliManage/KouBeiStoreEdit.js"></script>
+	<script>
+		allpayFunctionHelper.setAllPayRegionUlLi("#province", "#city", "#county", ".province", ".city", ".county");
+		allpayFunctionHelper.setIndustryAllPayCode("#FirstMhtIndustry", ".FirstMhtIndustry", "#SecondMhtIndustry", ".SecondMhtIndustry", "#ThirdMhtIndustry", ".ThirdMhtIndustry");
+		$.validator.setDefaults({
+			debug: true
+		});
+		var imgRegular = /^image\/(jpe?g|png|bmp|gif)$/i;
+		var errorTips = "请上传.jpg .jpeg .bmp .gif .png格式文件";
+		 //上传
+		controlsHelper.FileUploadControl(fileUploadUrl, "#brandLogoImg", "#brandLogoImgName", imgRegular, errorTips, "", ".brandLogoImgName");
+		controlsHelper.FileUploadControl(fileUploadUrl, "#storeFirstImg", "#storeFirstImgName", imgRegular, errorTips, "", ".storeFirstImgName");
+		controlsHelper.FileUploadControl(fileUploadUrl, "#storeTouImg", "#storeTouImgName", imgRegular, errorTips, "", ".storeTouImgName");
+		controlsHelper.FileUploadControl(fileUploadUrl, "#storeNeiImg", "#storeNeiImgName", imgRegular, errorTips, "", ".storeNeiImgName");
+		controlsHelper.FileUploadControl(fileUploadUrl, "#storeNeiImg2", "#storeNeiImg2Name", imgRegular, errorTips, "", ".storeNeiImg2Name");
+		controlsHelper.FileUploadControl(fileUploadUrl, "#licenceImg", "#licenceImgName", imgRegular, errorTips, "", ".licenceImgName");
+		controlsHelper.FileUploadControl(fileUploadUrl, "#certificateImg", "#certificateImgName", imgRegular, errorTips, "", ".certificateImgName");
+		controlsHelper.FileUploadControl(fileUploadUrl, "#authLetterImg", "#authLetterImgName", imgRegular, errorTips, "", ".authLetterImgName");
+	</script>
+	</body>
+
+</html>

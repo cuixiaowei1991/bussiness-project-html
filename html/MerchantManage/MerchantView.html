@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>查看商户详情页面</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+		</style>
+	</head>
+
+	<body>
+		<!-- Main content -->
+		<section class="content">
+			<h2 class="page-header">查看商户详情页面</h2>
+			<div class="box">
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="nav-tabs-custom">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#tab_1" data-toggle="tab">商户进件信息</a>
+						</li>
+						<li>
+							<a href="#tab_2" data-toggle="tab">已开通业务信息</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_1">
+							<div class="box-header with-border">
+								<div class="border-left-info">
+									<p>账号信息</p>
+								</div>
+							</div>
+							<div class="box-body no-padding">
+								<dl class="dl-horizontal">
+									<dt>联系人：</dt>
+									<dd id="mhtName"></dd>
+									<dt>联系人手机：</dt>
+									<dd>
+										<p id="mhtManagerPhone"><span class="text-red">&nbsp;&nbsp;&nbsp;&nbsp;未验证</span></p>
+									</dd>
+									<dt>登录密码：</dt>
+									<dd>
+										<p>********（默认密码“111111”） <span class="text-blue" id="ResetPassword">恢复初始密码</span></p>
+									</dd>
+								</dl>
+							</div>
+
+							<div class="box-header with-border">
+								<div class="border-left-info">
+									<p>商户基本信息</p>
+								</div>
+							</div>
+							<div class="box-body no-padding">
+								<dl class="dl-horizontal">
+									<dt>商户ID(MERCH)：</dt>
+									<dd id="mhtId"></dd>
+									<dt>商户企业全称：</dt>
+									<dd id="mhtName"></dd>
+									<dt>品牌/简称：</dt>
+									<dd id="mhtShortName"></dd>
+									<dt>品牌LOGO：</dt>
+									<dd id="mhtImgUrl"><img src="../../plugins/baiduEditor/css/images/ico-arrow.gif"></dd>
+									<dt>地址：</dt>
+									<dd id="mhtAddress"></dd>
+									<dt>所属行业：</dt>
+									<dd id="mhtIndustry"></dd>
+									<dt>所属代理商：</dt>
+									<dd id="mhtAgentName"></dd>
+									<!--<dt>来源：</dt>
+									<dd>代理商自助</dd>-->
+								</dl>
+							</div>
+
+							<div class="box-header with-border">
+								<div class="border-left-info">
+									<p>商户企业资质信息</p>
+								</div>
+							</div>
+							<div class="box-body no-padding">
+								<dl class="dl-horizontal">
+									<dt></dt>
+									<dd id="imageList">
+										<div class="pull-left margin-r-5">
+											<p></p>
+											<img src="" data-imgName="" data-imgPath="" width="200" height="300">
+											<br>
+											<br><span data-imgPath=""></span>
+										</div>
+										<div class="pull-left margin-r-5">
+											<p></p>
+											<img src="" data-imgName="" data-imgPath="" width="200" height="300">
+											<br>
+											<br><span data-imgPath=""></span>
+										</div>
+										<div class="pull-left margin-r-5">
+											<p></p>
+											<img src="" data-imgName="" data-imgPath="" width="200" height="300">
+											<br>
+											<br><span data-imgPath=""></span>
+										</div>
+
+									</dd>
+									<dt>企业主体名称：</dt>
+									<dd id="companyName"></dd>
+									<dt>法定代表人：</dt>
+									<dd id="identityName"></dd>
+									<dt>工商执照注册号：</dt>
+									<dd id="businessLicenseNum"></dd>
+									<dt>组织机构代码：</dt>
+									<dd id="organizationCode"></dd>
+									<dt>统一社会信用代码：</dt>
+									<dd id="socialCreditCode"></dd>
+									<dt>企业开户银行：</dt>
+									<dd id="openCountBank"></dd>
+									<dt>开户名称：</dt>
+									<dd id="openCountName"></dd>
+									<dt>开户银行账号：</dt>
+									<dd id="bankNum"></dd>
+								</dl>
+							</div>
+
+							<!--<div class="box-header with-border">
+								<div class="border-left-info">
+									<p>商户状态信息</p>
+								</div>
+							</div>
+							<div class="box-body no-padding">
+								<dl class="dl-horizontal">
+									<dt>是否启用：</dt>
+									<dd>
+										<label class="control-label">
+											<input type="checkbox" id="userIsStart" name="userIsStart" checked="true">启用</label>
+									</dd>
+								</dl>
+							</div>-->
+						</div>
+						<!-- /.tab-pane -->
+						<div class="tab-pane" id="tab_2">
+							<div class="box-header with-border">
+								<div>
+									<div class="border-left-info pull-left">
+										<p>已开通业务概况</p>
+									</div>
+									<button class="btn btn-primary btn-sm pull-right" id="NewBusiness">新增业务签约</button>
+								</div>
+							</div>
+							<div class="channelInfo" style="display: none;">
+								<div class="box box-solid">
+									<div class="box-body">
+										<div class="tagBox" id="couponchannel">
+										</div>
+									</div>
+								</div>
+								<div class="box box-solid">
+									<div class="box-body">
+										<div class="tagBox" id="channelString">
+										</div>
+									</div>
+								</div>
+								<div class="box-header">
+									<button class="btn btn-primary btn-sm btnModify">立即配置</button>
+								</div>
+							</div>
+
+							<div class="box-header">
+								<div>
+									<span class="text-muted">当前已签约<span id="businessTatal"></span>项业务 </span>
+								</div>
+							</div>
+
+							<div class="box-body no-padding">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>业务名称</th>
+											<th>签约时间</th>
+											<th>渠道状态</th>
+											<th>状态</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody id="businessList">
+
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+						<!-- /.tab-pane -->
+					</div>
+					<!-- /.tab-content -->
+				</div>
+
+			</div>
+		</section>
+		<div class="popGroup">
+			<!--更改配置弹框1(微信联鑫付11，微信众联享付112,微信商银信114,微信创新支付115,微信触联116,手Q联鑫付(18),手Q众联(181),联通沃支付(191)) 红色区域-->
+			<section class="pop center-text" data-value='11,112,114,115,116,18,181,191' data-pop="pop2" id="pop2">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">配置-微信支付-众联享付-公众号支付</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm0" data-value='11,112,114,115,116,18,181,191' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-4 control-label">微信子商户ID</label>
+											<div class="col-sm-4">
+												<input type="text" data-string='shopMachId' maxlength="10" id="shopMachId" name="shopMachId" class="form-control" placeholder="请输入联鑫付下的微信子商户ID" id="">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn" name="state" data-string='state' data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" data-string='choose' id="choose1" name="choose">启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="passbtn">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--更改配置弹框2 微信公众号(113)-->
+			<section class="pop center-text" data-value='113' data-pop="pop3" id="pop3">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title " id="modifyMenu">微信公众号支付</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm1" data-value='113' method="get" action="">
+									<!--内容-->
+									<div class="form-group">
+										<label class="col-sm-4 control-label">公众号ID(AppID)：</label>
+										<div class="col-sm-4">
+											<input type="text" class="form-control" placeholder="" maxlength="100" data-string='appID' id="appID" name="appID">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">应用秘钥(AppSecret)：</label>
+										<div class="col-sm-4">
+											<input type="text" class="form-control" placeholder="" maxlength="50" data-string='privateKey' id="privateKey" name="privateKey">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">商户号(MchID)：</label>
+										<div class="col-sm-4">
+											<input type="text" class="form-control" placeholder="" maxlength="50" data-string='mchID' id="mchID" name="mchID">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">证书文件(.p12格式)：</label>
+										<div class="col-xs-4">
+											<div class=" mailbox-attachment-info">
+												<input style="display: none;" data-string='apiclient_cert.p12' id="apiclient_cert_p12_view" name="apiclient_cert_p12" />
+												<!-- 文件上传返回信息显示区 -->
+												<a class="mailbox-attachment-name files apiclient_cert_p12"><i class="fa fa-paperclip"></i>选择文件</a>
+												<div class="progress progress-xxs">
+													<!-- 文件上传进度条 -->
+													<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+												</div>
+												<span class="mailbox-attachment-size">文件类型为.p12格式
+                                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                                  <i class="fa fa-plus"></i>
+                                                 <input type="file" data-index="0"  id="apiclient_cert_p12" name="apiclient_cert" >
+                                                  </span>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">证书文件(.pem格式)：</label>
+										<div class="col-xs-4">
+											<div class=" mailbox-attachment-info">
+												<input style="display: none;" data-string='apiclient_cert.pem' id="apiclient_cert_pem_view" name="apiclient_cert_pem" />
+												<!-- 文件上传返回信息显示区 -->
+												<a class="mailbox-attachment-name files apiclient_cert_pem"><i class="fa fa-paperclip"></i>选择文件</a>
+												<div class="progress progress-xxs">
+													<!-- 文件上传进度条 -->
+													<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+												</div>
+												<span class="mailbox-attachment-size">文件类型为.pem格式
+                                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                                  <i class="fa fa-plus"></i>
+                                                <input type="file" data-index="0"  id="apiclient_cert_pem" name="apiclient_cert">
+                                                  </span>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">证书文件(.pem格式)：</label>
+										<div class="col-xs-4">
+											<div class=" mailbox-attachment-info">
+												<input style="display: none;" data-string='apiclient_key.pem' id="apiclient_key_pem_view" name="apiclient_key_pem" />
+												<!-- 文件上传返回信息显示区 -->
+												<a class="mailbox-attachment-name files apiclient_key_pem"><i class="fa fa-paperclip"></i>选择文件</a>
+												<div class="progress progress-xxs">
+													<!-- 文件上传进度条 -->
+													<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+												</div>
+												<span class="mailbox-attachment-size">文件类型为.pem格式
+                                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                                  <i class="fa fa-plus"></i>
+                                               <input type="file" data-index="0"  id="apiclient_key" name="apiclient_key">
+                                                  </span>
+												</span>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">证书文件(.pem格式)：</label>
+										<div class="col-xs-4">
+											<div class=" mailbox-attachment-info">
+												<input style="display: none;" data-string='rootca.pem' id="rootca_pem_view" name="rootca_pem" />
+												<!-- 文件上传返回信息显示区 -->
+												<a class="mailbox-attachment-name files rootca_pem"><i class="fa fa-paperclip"></i>选择文件</a>
+												<div class="progress progress-xxs">
+													<!-- 文件上传进度条 -->
+													<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+												</div>
+												<span class="mailbox-attachment-size">文件类型为.pem格式
+                                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                                  <i class="fa fa-plus"></i>
+                                              <input type="file" data-index="0"  id="rootca" name="rootca">
+                                                  </span>
+												</span>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">证书密码：</label>
+										<div class="col-sm-4">
+											<input type="password" class="form-control" placeholder="" maxlength="50" data-string='certPassword' id="certPassword" name="certPassword">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">网点类目：</label>
+										<div class="col-xs-8">
+											<div class="btn-group">
+												<button type="button" class="btn btn-default btn-flat category1" data-string='category1' name='category1'>请选择主类目</button>
+												<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="dropdown-toggle">
+													<span class="caret"></span>
+													<span class="sr-only">请选择主类目</span>
+												</button>
+												<ul class="dropdown-menu" id="category1" role="menu">
+													<!--<li>
+														<a>中国</a>
+													</li>
+													<li>
+														<a>美国</a>
+													</li>
+													<li>
+														<a>日本</a>
+													</li>-->
+												</ul>
+											</div>
+											<div class="btn-group">
+												<button type="button" class="btn btn-default btn-flat category2" data-string='category2' name='category2'>请选择子类目</button>
+												<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="dropdown-toggle">
+													<span class="caret"></span>
+													<span class="sr-only">请选择子类目</span>
+												</button>
+												<ul class="dropdown-menu" id="category2" role="menu">
+													<!--<li>
+														<a>中国</a>
+													</li>
+													<li>
+														<a>美国</a>
+													</li>
+													<li>
+														<a>日本</a>
+													</li>-->
+												</ul>
+											</div>
+											<!--<div class="btn-group">
+												<button type="button" class="btn btn-default btn-flat category3" data-string='category3' name='category3'>请选择类目</button>
+												<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+													<span class="caret"></span>
+													<span class="sr-only">请选择类目</span>
+												</button>
+												<ul class="dropdown-menu" id="category3" role="menu">
+													<li>
+														<a>中国</a>
+													</li>
+													<li>
+														<a>美国</a>
+													</li>
+													<li>
+														<a>日本</a>
+													</li>
+												</ul>
+											</div>-->
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">备注：</label>
+										<div class="col-sm-4">
+											<input type="text" class="form-control" placeholder="" maxlength="100" id="description" name="description" data-string='description'>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-4 control-label">渠道状态：</label>
+										<div class="col-xs-8">
+											<div class="btn-group">
+												<button type="button" class="btn btn-default btn-flat channelStateBtn" name="state" data-string='state' data-value=''>全部</button>
+												<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+													<span class="caret"></span>
+													<span class="sr-only">全部</span>
+												</button>
+												<ul class="dropdown-menu channelState" role="menu">
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-xs-4 control-label">状态：</label>
+
+										<div class="col-xs-4">
+											<label class="control-label">
+												<input type="checkbox" checked="checked" id="choose2" data-string='choose' name="choose">启用</label>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="ResetPassbtn0">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--更改配置弹框3 支付宝威富通（一清）(17),支付宝威富通（二清）(192)黄色区域-->
+			<section class="pop center-text" data-value='17,192' data-pop="pop4" id="pop4">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">支付宝威富通</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm2" data-value='17,192' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-xs-2 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn" name="state" data-string='state' data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" id="state3" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-2 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" id="choose3" data-string='choose' name="choose">启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="ResetPassbtn">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<!--更改配置弹框4  支付宝联鑫付(14),支付宝触联(145),支付宝触联(餐饮)(146)蓝色区域-->
+			<section class="pop center-text" data-string='14,145,146' data-pop="pop5" id="pop5">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">支付宝联鑫付</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm3" data-value='14,145,146' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-4 control-label">支付宝公钥(Public_key)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="publicKey" data-string='publicKey' name="publicKey">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">AppID：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="appID1" name="appID" data-string='appID'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户公钥(ShopPub_key)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="shopPub_key" name="shopPub_key" data-string='shopPub_key'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户私钥(ShopPri_key)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="shopPri_key" name="shopPri_key" data-string='shopPri_key'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">联鑫付PID：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="lxfPID" name="lxfPID" data-string='lxfPID'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn " name="state" data-string='state' data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" id="state4" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" id="choose4" data-string='choose' name="choose">启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="passbtn1">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+			<!--更改配置弹框5 支付宝众联享付(142)-->
+			<section class="pop center-text" data-value='142' data-pop="pop6" id="pop6">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">支付宝众联享付</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm4" data-value='142' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-4 control-label">支付宝为众联分配的公钥(public_key)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="public_key1" data-string='public_key' name="public_key">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">众联享付商户号(mchID)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="mchID1" name="mchID" data-string='mchID'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">众联享付PID(publicPID)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="myPID" name="myPID" data-string='myPID'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户PID(shopPID)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" name="shopPID" data-string='shopPID'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">众联享付公钥(shopPub_key)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" name="shopPub_key" data-string='shopPub_key'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">众联享付私钥(shopPri_key)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" name="shopPri_key" data-string='shopPri_key'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户口碑授权状态：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" name="tokenState" data-string='tokenState'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户token：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" name="token" data-string='token'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn" name="state" data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" id="state5" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" id="choose5" name="choose" data-string='choose'>启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="passbtn3">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<!--更改配置弹框7  百度钱包众联(12),美团众联(31),和包众联(120)百度钱包  美团  移动和包-->
+			<section class="pop center-text" data-value='12,31,120' data-pop="pop8" id="pop8">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">百度钱包众联</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm5" data-value='12,31,120' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-4 control-label">秘钥(appSecret)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" data-string='privateKey' maxlength="1500" placeholder="" id="" name="privateKey">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户号(mchID)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" id="" maxlength="100" data-string='mchID' name="mchID">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">备注：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" id="" maxlength="300" data-string='description' name="description">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn" name="state" data-string='state' data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" id="state6" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" id="choose6" data-string='choose' name="choose">启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="passbtn6">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<!--更改配置弹框8  京东钱包众联(13) 京东钱包联鑫付(131) -->
+			<section class="pop center-text" data-value='13,131' data-pop="pop9" id="pop9">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">京东钱包</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm6" data-value='13,131' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户号(mchID)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" data-string='mchID' name="mchID">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">主扫(付款码)appID：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" data-string='appID' name="appID">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">主扫(付款码)securtykey：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" data-string='securtykeyZ' name="securtykeyZ">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">被扫(扫一扫)appID：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" data-string='appIDB' name="appIDB">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">被扫(扫一扫)securtykey：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" data-string='securtykeyB' name="securtykeyB">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">H5扫一扫appID：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" data-sting='h5AppID' name="h5AppID">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">H5扫一扫appSecret：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" name="h5Securtykey" data-string='h5Securtykey'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">H5扫一扫公钥：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" name="h5PublicKey" data-string='h5PublicKey'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">H5扫一扫私钥：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" name="h5PrivateKey" data-string='h5PrivateKey'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">备注：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" name="description" data-string='description'>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn" name="state" data-string='state' data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" id="state7" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" id="choose7" data-string='choose' name="choose">启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="passbtn7">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<!--更改配置弹框9     大众闪惠众联(15)) -->
+			<section class="pop center-text" data-value='15' data-pop="pop10" id="pop10">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">大众闪惠</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm7" data-value='15' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-4 control-label">securekey：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" data-string='privateKey' name="privateKey">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">appid：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" data-string='appid' name="appid">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">备注：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="300" id="" data-string='description' name="description">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn" data-string='state' name="state" data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" id="state8" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" id="choose8" name="choose" data-string='choose'>启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="passbtn8">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<!--更改配置弹框10     翼支付成都(16) -->
+			<section class="pop center-text" data-value='16' data-pop="pop11" id="pop11">
+				<div class="pop-body">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">翼支付</h4>
+							</div>
+							<div class="modal-body">
+								<form class="form-horizontal" id="signupForm8" data-value='16' method="get" action="">
+									<!--内容-->
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-4 control-label">securekey：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" ata-string='securekey' name="securekey">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">商户ID：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="10" id="" data-string='mchID' name="mchID">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">接口密码：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="100" id="" data-string='interfacePassword' name="interfacePassword">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">翼支付账号(主扫)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" data-string='accountNo' name="accountNo">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">翼支付账号(被扫)：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" data-string='cashierChannelNo' name="cashierChannelNo">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">秘钥：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="1500" id="" data-string='securekeyB' name="securekeyB">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-4 control-label">备注：</label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" placeholder="" maxlength="300" id="" data-string='description' name="description">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">渠道状态：</label>
+											<div class="col-xs-8">
+												<div class="btn-group">
+													<button type="button" class="btn btn-default btn-flat channelStateBtn" data-string='state' name="state" data-value=''>全部</button>
+													<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+														<span class="caret"></span>
+														<span class="sr-only">全部</span>
+													</button>
+													<ul class="dropdown-menu channelState" id="state9" role="menu">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-xs-4 control-label">状态：</label>
+
+											<div class="col-xs-4">
+												<label class="control-label">
+													<input type="checkbox" checked="checked" id="choose9" data-string='choose' name="choose">启用</label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary" id="passbtn9">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/common/regularHelper.js"></script>
+		<script src="../../plugins/jQueryValidate/additional-methods.min.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+
+		<!--本页面需要的脚本-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../plugins/common/dataValueHelper.js"></script>
+		<!--<script src="../../interfaceJs/commonOtherInfo.js"></script>-->
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../interfaceJs/businessPosServer.js"></script>
+		<script src="../../js/MerchantManage/MerchantView.js"></script>
+		<!--列表模版-->
+		<script id="businessListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>{{businessName}}</td>
+				<td>{{businessCreateTime}}</td>
+				<td data-id='{{businessChannelState}}'>{{channelStateName}}</td>
+				<td data-id='{{businessState}}'>{{stateName}}</td>
+				<td>
+					<span class="label label-info ChangeConfig" data-businessId='{{businessId}}'>更改配置</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+		<script id="couponchannelTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<div class="btn  btn-flat" data-name='{{data_name}}' data-string='{{data_string1}}' data-code='{{data_code}}' data-id='{{data_id}}'>{{data_name}}</div>
+			{{/lists}}
+		</script>
+		<script id="channelStringTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<div class="btn  btn-flat" data-code='{{code}}'>{{name}}</div>
+			{{/lists}}
+		</script>
+		<script>
+			controlsHelper.FileUploadControl(fileUploadUrl, "#apiclient_cert_p12", "#apiclient_cert_p12_view", /\.p12$/i, "传的文件类型不符合要求，请上传p12文件", ".apiclient_cert_p12");
+			controlsHelper.FileUploadControl(fileUploadUrl, "#apiclient_cert_pem", "#apiclient_cert_pem_view", /\.pem$/i, "传的文件类型不符合要求，请上传pem文件", ".apiclient_cert_pem");
+			controlsHelper.FileUploadControl(fileUploadUrl, "#apiclient_key", "#apiclient_key_pem_view", /\.pem$/i, "传的文件类型不符合要求，请上传pem文件", ".apiclient_key_pem");
+			controlsHelper.FileUploadControl(fileUploadUrl, "#rootca", "#rootca_pem_view", /\.pem$/i, "传的文件类型不符合要求，请上传pem文件", ".rootca_pem");
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>支付宝口碑-门店关联配置</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+	</head>
+
+	<body>
+		<section class="content">
+			<h2 class="page-header">支付宝口碑-门店关联配置</h2>
+			<div class="box">
+				<div class="box-header ">
+					<form class="form-horizontal" id="signupForm" method="get" action="">
+						<div class="col-xs-12">
+							<div class="col-xs-5">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">商户名称搜索：</label>
+									<div class="col-xs-8">
+										<input type="text" class="form-control" placeholder="选择或输入商户关键字" id="shopName" name="shopName">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="col-xs-5">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">所属分子公司：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat brach" name="brach" data-value=''>请选择分公司</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu" id="brach">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-7">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">门店状态：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat storeState">全部</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+												<span class="caret"></span>
+												<span class="sr-only"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu" id="storeState">
+												<li value='2'>
+													<a>待审核</a>
+												</li>
+												<li value='1'>
+													<a>审核中</a>
+												</li>
+
+												<li value="3">
+													<a>已审核</a>
+												</li>
+												<li value="4">
+													<a>被驳回</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-offset-2">
+								<button type="button" class="btn btn-primary" id="query">查询</button>
+								<label class="text-blue text-right" id="tipsError"></label>
+							</div>
+						</div>
+					</form>
+					<div class="box-body no-padding">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>系统商户简称</th>
+									<th>系统网点简称</th>
+									<th>支付宝口碑门店名称</th>
+									<th>网点地址</th>
+									<th>口碑门店流水号</th>
+									<th>口碑门店ID</th>
+									<th>审核状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="KouBeiStoreList">
+								<!--<tr>
+									<td>测试口碑</td>
+									<td>第一个</td>
+									<td>测试口碑(第一个)</td>
+									<td>新街口大街28号</td>
+									<td>2017010500107000000000080742</td>
+									<td>2017010500077000000000049266</td>
+									<td>通过</td>
+									<td>
+										<span class="label label-primary jump" data-pageName='AliManage-KouBeiStoreEdit' data-pageNameZh='修改支付宝口碑-门店关联配置' data-zfbKbId="{{zfbKbId}}" data-param="?zfbKbId={{zfbKbId}}">修改</span>
+										<span class="label label-primary jump" data-pageName='AliManage-KouBeiStoreAdd' data-pageNameZh='添加支付宝口碑-门店关联配置' data-shopId="{{shopId}}" data-storeId="{{storeId}}" data-storeCode="{{storeCode}}" data-zfbKbId="{{zfbKbId}}" data-param="?storeId={{storeId}}&storeCode={{storeCode}}">创建</span>
+										<span class="label label-primary BtnRefresh" data-shopId="{{shopId}}" data-zfbNum="{{zfbNum}}" data-wechantToken="{{wechantToken}}">刷新</span>
+									</td>
+								</tr>-->
+							</tbody>
+						</table>
+						<div class="box-footer ">
+							<div class="pagination no-margin pull-right">
+								<a href="#" class="first" data-action="first">&laquo;</a>
+								<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+								<input type="text" readonly="readonly" data-max-page="40" />
+								<a href="#" class="next" data-action="next">&rsaquo;</a>
+								<a href="#" class="last" data-action="last">&raquo;</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.box-header -->
+			</div>
+			<!-- /.box -->
+		</section>
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+		<script src="../../plugins/daterangepicker/moment.min.js"></script>
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+
+		<!--本页面需要的脚本-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/regionHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../plugins/common/dataValueHelper.js"></script>
+		<script src="../../plugins/common/timeHelper.js"></script>
+
+		<script src="../../plugins/common/allpayFunctionHelper.js"></script>
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/zfbInfoServer.js"></script>
+		<script src="../../js/AliManage/KouBeiStoreContact.js"></script>
+		<!--列表模版-->
+		<script id="KouBeiStoreTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>{{shopShortName}}</td>
+				<td>{{storeShortName}}</td>
+				<td>{{kbStoreName}}</td>
+				<td>{{Address}}</td>
+				<td>{{storeNum}}</td>
+				<td>{{storeId}}</td>
+				<td data-storeState='{{storeState}}'></td>
+				<td>
+					<span class="label label-primary jump" data-pageName='AliManage-KouBeiStoreEdit' data-pageNameZh='修改支付宝口碑-门店关联配置' data-zfbKbId="{{zfbKbId}}" data-param="?zfbKbId={{zfbKbId}}">修改</span>
+					<span class="label label-primary jump" data-pageName='AliManage-KouBeiStoreAdd' data-pageNameZh='添加支付宝口碑-门店关联配置' data-shopId="{{shopId}}" data-storeId="{{storeId}}" data-storeCode="{{storeCode}}" data-zfbKbId="{{zfbKbId}}" data-param="?storeId={{storeId}}&storeCode={{storeCode}}">创建</span>
+					<span class="label label-primary BtnRefresh" data-shopId="{{shopId}}" data-zfbNum="{{zfbNum}}" data-wechantToken="{{wechantToken}}">刷新</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+	</body>
+
+</html>

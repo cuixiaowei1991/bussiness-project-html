@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>添加POS合作方</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+
+	</head>
+	<!-- Main content -->
+	<section class="content">
+		<h2 class="page-header">添加POS合作方</h2>
+		<div class="box">
+			<div class="box-header ">
+				<form class="form-horizontal" id="signupForm" method="get" action="">
+					<div class="form-group">
+						<label class="col-xs-2 control-label">合作方全称：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入合作方全称" id="parterName" name="parterName" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">合作方简称：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入合作方简称" id="parterShortName" name="parterShortName" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">合作方联系人：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入合作方联系人" id="connectPerson" name="connectPerson" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">联系人手机号：</label>
+
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入联系人手机号" id="connectTel" name="connectTel" maxlength="11">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">拓展人：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入拓展人" id="expandPeople" name="expandPeople" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">合作方级别：</label>
+
+						<div class="col-xs-8">
+							<div class="radio">
+								<label for="level1" id="classFirst">
+									<input type="radio" name="optionsRadios" id="level1" value="0">一级&nbsp;&nbsp;
+								</label>
+								<label for="level2" id="classSecond">
+									<input type="radio" name="optionsRadios" id="level2" value="1" checked>二级
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group" id="oneShow" style="display: block;">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-8">
+							<span id="">所属分子公司：</span>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat branch" id="test" name="branch" data-value=''>请选择分子公司</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="nametest">
+									<span class="caret"></span>
+									<span class="sr-only"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="branch">
+									<li>
+										<a href="#">请选择分子公司</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="form-group" id="twoShow" style="display: none;">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-8">
+							<span id="">所属上级合作：</span>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat parter" name="parter" data-value=''>请选择合作方</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="nameparter">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+								<ul class="dropdown-menu" role="menu" id="parter">
+									<li>
+										<a href="#">请选择合作方</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">地址：</label>
+						<div class="col-xs-8">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat province" name="province">省</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="nameprovince">
+									<span class="caret"></span>
+									<span class="sr-only">省</span>
+								</button>
+								<ul class="dropdown-menu" id="province" role="menu">
+									
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat city" name="city">市</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecity">
+									<span class="caret"></span>
+									<span class="sr-only">市</span>
+								</button>
+								<ul class="dropdown-menu" id="city" role="menu">
+									
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat country" name="country">县</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecountry">
+									<span class="caret"></span>
+									<span class="sr-only">县</span>
+								</button>
+								<ul class="dropdown-menu" id="country" role="menu">
+									
+								</ul>
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入详细地址" id="parterAddress" name="parterAddress" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">状态：</label>
+
+						<div class="col-xs-4">
+							<label class="control-label">
+								<input type="checkbox" id="parterState" name="namecheckbox" checked="true">启用</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-2 col-xs-6">
+							<button type="submit" class="btn btn-primary" id="submitBtn" name="namesubmitBtn">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /.box-header -->
+		</div>
+		<!-- /.box -->
+	</section>
+	<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+	<script src="../../plugins/theme/js/app.min.js"></script>
+	<script src="../../plugins/common/common.js"></script>
+	<script src="../../plugins/theme/js/index_flot.js"></script>
+
+	<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+	<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+	<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+	<script src="../../plugins/common/regularHelper.js"></script>
+
+	<!--本页面需要的脚本-->
+	<script src="../../plugins/common/mustache.min.js"></script>
+	<script src="../../plugins/common/dataHelper.js"></script>
+	<script src="../../plugins/common/controlsHelper.js"></script>
+	<script src="../../plugins/common/regionHelper.js"></script>
+	<script src="../../interfaceJs/systemUserServer.js"></script>
+	<script src="../../interfaceJs/agentUserServer.js"></script>
+	<script src="../../interfaceJs/businessAgentServer.js"></script>
+	<script src="../../js/AgentPartnerManage/PartnerAdd.js"></script>
+	<script>
+	regionHelper.regionDownBoxUlLi("#city", "#province", "#country", ".city", ".province", ".country");
+	</script>
+	</body>
+
+</html>

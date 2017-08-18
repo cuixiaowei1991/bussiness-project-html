@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>实例</title>
+
+		<link rel="stylesheet" href="../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../plugins/Pagination/css/pagination.css">
+
+		<body>
+
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<div class="form-group inline">
+									<input type="text" class="form-control input-m " placeholder="请输入姓名或手机号">
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat products">产品</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">省份</span>
+						</button>
+									<ul class="dropdown-menu" id="products" role="menu">
+										<li>
+											<a>产品</a>
+										</li>
+										<li>
+											<a>运营</a>
+										</li>
+										<li>
+											<a>市场</a>
+										</li>
+										<li>
+											<a>编辑</a>
+										</li>
+										<li>
+											<a>研发</a>
+										</li>
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat zuzhi">不限组织机构</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">省份</span>
+						</button>
+									<ul class="dropdown-menu" id="zuzhi" role="menu">
+										<li>
+											<a>不限组织机构</a>
+										</li>
+										<li>
+											<a>北京分公司</a>
+										</li>
+									</ul>
+								</div>
+								<button class="btn btn-primary ">查询</button>
+
+							</div>
+							<div class="box-body no-padding">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>门店简称</th>
+											<th>所在位置</th>
+											<th>微信门店</th>
+											<th>口碑门店</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<tr>
+											<td>众联科技</td>
+											<td>新街口</td>
+											<td>456</td>
+											<td>123</td>
+											<td>
+												<span class="label label-danger">删除</span>
+												<span class="label label-info">编辑</span>
+												<span class="label label-info">修改</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="box-footer ">
+
+								<div class="pagination no-margin pull-right">
+									<a href="#" class="first" data-action="first">&laquo;</a>
+									<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+									<input type="text" readonly="readonly" data-max-page="40" />
+									<a href="#" class="next" data-action="next">&rsaquo;</a>
+									<a href="#" class="last" data-action="last">&raquo;</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">信息展示</h3>
+							</div>
+							<div class="box-body no-padding">
+								<dl class="dl-horizontal">
+									<dt>合同号：</dt>
+									<dd>123</dd>
+									<dt>签约日期：</dt>
+									<dd>123</dd>
+									<dt>合同起合同起始日期合同起始日期始日期：</dt>
+									<dd>123</dd>
+									<dt>合同截止日期：</dt>
+									<dd>123</dd>
+									<dt>合同年份：</dt>
+									<dd>1231/12/12</dd>
+									<dt>业务类型：</dt>
+									<dd>优惠券</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">图片上传/下载</h3>
+							</div>
+							<ul class="mailbox-attachments clearfix">
+								<li>
+									<span class="mailbox-attachment-icon"><i class="fa fa-file-pdf-o"></i></span>
+
+									<div class="mailbox-attachment-info">
+										<a href="#" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> Sep2014-report.pdf
+										</a>
+										<span class="mailbox-attachment-size">
+                               1,245 KB
+                               <a href="#" class="btn btn-default btn-xs pull-right"><i
+									   class="fa fa-cloud-download"></i></a>
+                             </span>
+									</div>
+								</li>
+
+								<li>
+									<span class="mailbox-attachment-icon"><i class="fa fa-file-word-o"></i></span>
+
+									<div class="mailbox-attachment-info">
+										<a href="#" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> App Description.docx
+										</a>
+										<span class="mailbox-attachment-size">
+                               1,245 KB
+                               <a href="#" class="btn btn-default btn-xs pull-right"><i
+									   class="fa fa-cloud-download"></i></a>
+                             </span>
+									</div>
+								</li>
+								<li class="imageList">
+									<img class="mailbox-attachment-icon" src="../plugins/theme/img/nopic.jpg">
+
+									<div class=" mailbox-attachment-info">
+										<!-- 文件上传返回信息显示区 -->
+										<a href="" class="mailbox-attachment-name files"><i class="fa fa-paperclip"></i> 还未选择图片</a>
+
+										<div class="progress progress-xxs">
+											<!-- 文件上传进度条 -->
+											<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+										</div>
+										<span class="mailbox-attachment-size">1,245 KB
+                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                    <i class="fa fa-plus"></i><input type="file" name="files[]" data-index="0" multiple>
+                                 </span>
+										</span>
+									</div>
+								</li>
+								<li>
+									<div class=" mailbox-attachment-info">
+										<input style="display: none;" data-string='apiclient_key.pem' id="apiclient_key_pem_view" name="apiclient_key_pem" />
+										<!-- 文件上传返回信息显示区 -->
+										<a class="mailbox-attachment-name files apiclient_key_pem"><i class="fa fa-paperclip"></i>选择文件</a>
+										<div class="progress progress-xxs">
+											<!-- 文件上传进度条 -->
+											<div class="progress-bar progress-bar-success progress-bar-striped"></div>
+										</div>
+										<span class="mailbox-attachment-size">文件类型为.pem格式
+                                                  <span class="btn btn-default fileinput-button btn-xs pull-right">
+                                                  <i class="fa fa-plus"></i>
+                                               <input type="file" data-index="0"  id="apiclient_key" name="apiclient_key">
+                                                  </span>
+										</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">1</h3>
+							</div>
+							<div class="box-body">
+								<div class="h_15"></div>
+								<!--<div class="col-xs-2">地址：</div>-->
+								<label><span>地址：</span></label>
+
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat province">中国</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">国家</span>
+						</button>
+									<ul class="dropdown-menu" id="province" role="menu">
+										<li>
+											<a>中国</a>
+										</li>
+										<li>
+											<a>美国</a>
+										</li>
+										<li>
+											<a>日本</a>
+										</li>
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat city">中国</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+							<span class="sr-only">国家</span>
+						</button>
+									<ul class="dropdown-menu" id="city" role="menu">
+										<li>
+											<a>中国</a>
+										</li>
+										<li>
+											<a>美国</a>
+										</li>
+										<li>
+											<a>日本</a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="h_15"></div>
+								<form id="signupForm" autocomplete="off" method="get" action="">
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">FirstName</label>
+
+											<div class="col-sm-9">
+												<input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="FirstName">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label">PassWord</label>
+
+											<div class="col-sm-9">
+												<input type="PassWord" name="PassWord" class="form-control" placeholder="PassWord">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-3 control-label">PassWord</label>
+
+											<div class="col-sm-9">
+												<input type="PassWord" name="PassWord" class="form-control" placeholder="PassWord">
+											</div>
+										</div>
+									</div>
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">Email</label>
+
+											<div class="col-sm-9">
+												<input class="form-control" name="email" placeholder="Email">
+											</div>
+										</div>
+									</div>
+									<div class="form-horizontal">
+										<div class="form-group">
+											<label class="col-sm-3 control-label">select</label>
+
+											<div class="col-sm-9">
+												<button type="button" id="selectName" name="selectName" class="btn btn-default btn-flat funcSupSystemId">请选择下拉框</button>
+												<!--<input type="email" class="form-control" name="email" placeholder="Email">-->
+											</div>
+										</div>
+									</div>
+									<button class="btn btn-primary" id="sureAddBtn">确定</button>
+								</form>
+
+								<div class="h_15"></div>
+
+								<input type="checkbox" id="g5">
+								<label for="g5">123456789</label>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<!-- 选项卡-->
+						<div class="nav-tabs-custom">
+							<ul class="nav nav-tabs">
+								<li class="active">
+									<a href="#tab_1" data-toggle="tab">Tab 1</a>
+								</li>
+								<li>
+									<a href="#tab_2" data-toggle="tab">Tab 2</a>
+								</li>
+								<li>
+									<a href="#tab_3" data-toggle="tab">Tab 3</a>
+								</li>
+								<li class="pull-right">
+									<a href="#" class="text-muted"><i class="fa fa-gear"></i></a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tab_1">
+									<b>How to use:</b>
+
+									<p>Exactly like the original bootstrap tabs except you should use the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
+									A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.
+								</div>
+								<!-- /.tab-pane -->
+								<div class="tab-pane" id="tab_2">
+									The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.
+								</div>
+								<!-- /.tab-pane -->
+								<div class="tab-pane" id="tab_3">
+									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-solid">
+					<div class="box-body">
+						<p><input type="checkbox" id="c1"><label for="c1" class="badge">商户管理</label></p>
+
+						<div class="row">
+							<ul class="list-x">
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管理</label></li>
+								<li class="col-xs-4 col-md-3"><input type="checkbox"><label>商户管商户管理商户管理理</label></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="box box-solid">
+					<div class="box-body">
+						<div class="tagBox">
+							<div class="btn  btn-flat">你好</div>
+							<div class="btn  btn-flat active">你好</div>
+						</div>
+					</div>
+				</div>
+				<button class="btn btn-lg btn-primary" data-pop="pop1">弹窗示例1</button>
+				<button class="btn btn-lg btn-primary" data-pop="pop2">弹窗示例2</button>
+			</section>
+
+			<section class="pop center-text" data-pop="pop1">
+				<div class="pop-body ">
+					<div class="box">
+						<div class="box-header">
+							<h3 class="box-title">标题</h3>
+
+							<div class="box-tools pull-right">
+								<button class="btn btn-box-tool" data-pop="close"><i class="fa fa-times"></i></button>
+							</div>
+						</div>
+						<div class="box-body no-padding">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>门店简称</th>
+										<th>所在位置</th>
+										<th>微信门店</th>
+										<th>口碑门店</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr>
+										<td>众联科技</td>
+										<td>新街口</td>
+										<td>456</td>
+										<td>123</td>
+										<td>
+											<span class="label label-danger">删除</span>
+											<span class="label label-info">编辑</span>
+											<span class="label label-info">修改</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="box-footer ">
+							<ul class="pagination  no-margin pull-right">
+								<li>
+									<a>&laquo;</a>
+								</li>
+								<li>
+									<a>1</a>
+								</li>
+								<li>
+									<a>2</a>
+								</li>
+								<li>
+									<a>3</a>
+								</li>
+								<li>
+									<a>...</a>
+								</li>
+								<li>
+									<a>&raquo;</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<section class="pop center-text" data-pop="pop2">
+				<div class="pop-body ">
+					<div class="box">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close">
+						<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title text-red">添加</h4>
+							</div>
+							<div class="modal-body">
+								<!--内容-->
+								<div class="form-horizontal">
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">EmEmailElailail</label>
+
+										<div class="col-sm-8">
+											<input type="email" class="form-control" placeholder="Email">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-pop="close">取消</button>
+								<button type="button" class="btn btn-primary">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+
+			<script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+			<script src="../plugins/theme/bootstrap/bootstrap.min.js"></script>
+			<script src="../plugins/theme/js/app.min.js"></script>
+			<script src="../plugins/common/common.js"></script>
+			<script src="../plugins/theme/js/index_flot.js"></script>
+			<script src="../plugins/Pagination/js/pagination.min.js"></script>
+			<script src="../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+			<script src="../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+			<script src="../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+			<script src="../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+			<script src="../plugins/jQueryValidate/jquery.validate.min.js"></script>
+			<script src="../plugins/jQueryValidate/messages_zh.js"></script>
+			<script src="../plugins/common/regularHelper.js"></script>
+			<script src="../plugins/jQueryValidate/additional-methods.min.js"></script>
+
+			<script src="../plugins/common/dataHelper.js"></script>
+			<script src="../plugins/common/controlsHelper.js"></script>
+			<script src="../plugins/common/TMSTypeHelper.js"></script>
+
+			<script>
+				console.log(dataHelper.fRandomNumber(32, 'string'));
+				console.log(dataHelper.fRandomNumber(8, 'int'));
+
+				$('.pagination').jqPagination({
+					paged: function(page) {
+						// do something with the page variable
+					}
+				});
+				//单个下拉框
+				var datalist = [{
+					"name": "产品信息",
+					"value": "1"
+				}, {
+					"name": "运营信息",
+					"value": "2"
+				}, {
+					"name": "平台信息",
+					"value": "3"
+				}];
+				controlsHelper.downBoxUlLi('全部信息', datalist, "#products", ".products");
+
+				//两级联动
+				var datalist1 = [{
+					"name": "石家庄",
+					"value": "1",
+					"parentValue": "5"
+				}, {
+					"name": "保定",
+					"value": "2",
+					"parentValue": "5"
+				}, {
+					"name": "太原",
+					"value": "3",
+					"parentValue": "7"
+				}, {
+					"name": "房山区",
+					"value": "4",
+					"parentValue": "6"
+				}, {
+					"name": "河北省",
+					"value": "5"
+				}, {
+					"name": "北京",
+					"value": "6"
+				}, {
+					"name": "山西省",
+					"value": "7"
+				}];
+				controlsHelper.downBoxLinkageUlLi('全部信息', datalist1, "#city", "#province", ".city", ".province");
+
+				//上传
+				controlsHelper.FileUploadControl(fileUploadUrl, ".imageList input", ".imageList img", /^image\/(jpe?g|png)$/i, "传的文件类型不符合要求，请上传jpg");
+
+				$.validator.setDefaults({
+					debug: true
+				});
+
+				function fromValidate() {
+					return $("#signupForm").validate({
+						/* 设置验证规则 */
+						rules: {
+							FirstName: {
+								required: true,
+								stringCheck: true,
+								byteRangeLength: [3, 15],
+								isFirstNoZeroInt: true
+							},
+							//							email: {
+							//								required: true,
+							//								email: true
+							//							},
+							PassWord: {
+								required: true,
+								isPhone: true
+							}
+							//							,
+							//							selectName: {
+							//								isRequired: ["请选择下拉框1"]
+							//							}
+						},
+						/**/
+						/* 设置错误信息 */
+						messages: {
+							FirstName: {
+								required: "请填写用户名",
+								stringCheck: "用户名只能包括中文字、英文字母、数字和下划线",
+								byteRangeLength: "用户名必须在3-15个字符之间(一个中文字算2个字符)"
+							},
+							//							email: {
+							//								required: "请输入一个Email地址",
+							//								email: "请输入一个有效的Email地址"
+							//							},
+							PassWord: {
+								required: "请输入您的联系电话",
+								isPhone: "请输入一个有效的联系电话"
+							}
+							//							,
+							//							selectName: {
+							//								isRequired: "请输入"
+							//							}
+						},
+						/* 设置错误信息提示DOM */
+						errorPlacement: function(error, element) {
+							error.appendTo(element.parent());
+//							error.appendTo($("#signupForm").find(element[0].localName + '[name=' + element[0].name + ']').parent());
+
+						},
+					});
+				};
+				$(function() {
+					fromValidate();
+					$("#sureAddBtn").click(function() {
+						if(fromValidate().form()) {
+							alert('成功');
+							//新增，保存操作等
+						}
+					});
+				});
+
+				TMSTypeHelper.SetTmsFactoryInfo("#zuzhi", "#products", ".zuzhi", ".products");
+			</script>
+		</body>
+
+</html>

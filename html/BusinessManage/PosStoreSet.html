@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>门店pos配置管理</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css">
+	</head>
+
+	<body>
+
+		<section class="content">
+			<h2 class="page-header">POS终端号列表</h2>
+
+			<div class="box">
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="box-header">
+					<form class="form-horizontal" autocomplete="off" method="get" action="">
+						<div class="form-group">
+							<label class="col-xs-2 control-label">输入终端号：</label>
+
+							<div class="col-xs-3">
+								<input type="text" id="termCode" class="form-control" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-2 control-label">按终端类型：</label>
+							<div class="col-xs-8">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat posType" name="">全部</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="posType">
+										<li data-value='0'>
+											<a>传统POS</a>
+										</li>
+										<li data-value='1'>
+											<a>PCPOS</a>
+										</li>
+										<li data-value='2'>
+											<a>虚拟POS</a>
+										</li>
+										<li data-value='3'>
+											<a>软POS</a>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">按终端归属：</label>
+							<div class="col-xs-10">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat companyId" name="">全部分子公司</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="companyId">
+
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat parterId" name="">全部合作方</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="parterId">
+
+									</ul>
+								</div>
+								<div class="btn-group">
+									<input type="checkbox" name="" id="isContainFit" />含有配件
+								</div>
+								<div class="btn-group pjGroup" style="display: none;">
+									<button type="button" class="btn btn-default btn-flat pjParterId" name="">全部配件合作方</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="pjParterId">
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">所属商户：</label>
+
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="mhtName" data-mhtId="" name="" maxlength="" disabled="disabled" data-mhtId="">
+
+							</div>
+							<div class="col-xs-3">
+								<button type="button" class="btn btn-primary" id="BtnSelect" data-pop="pop2">选择</button>
+								<button type="button" class="btn btn-primary" id="BtneEmpty">清空</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">按部署门店：</label>
+							<div class="col-xs-8">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat storeId" name="">全部门店</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="storeId">
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">按录入日期：</label>
+							<div class="col-xs-8">
+								<div class="input-group col-xs-3 pull-left">
+									<div class="input-group-addon">
+										<i class="fa fa-calendar"></i>
+									</div>
+									<input type="text" readonly class="form-control" id="reservation1" placeholder="开始日期">
+								</div>
+								<div class="pull-left timeAnd">至</div>
+								<div class="input-group col-xs-3 pull-left">
+									<div class="input-group-addon">
+										<i class="fa fa-calendar"></i>
+									</div>
+									<input type="text" readonly class="form-control" id="reservation2" placeholder="截止日期">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-offset-2 col-xs-2">
+								<button class="btn btn-sm btn-primary select" type='button'>查询</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<!--<button class="select">查询</button>-->
+								<!--<span class="text-aqua">批量导出xls格式</span>-->
+							</div>
+						</div>
+					</form>
+					<h2 class="page-header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+					<div>
+						<span class="text-muted">共<span class="total">0</span>条，每页<span>10</span>条 </span>
+						<span class="pull-right">
+							<a>
+							<button class="btn btn-primary btn-sm jump" type="button" data-pageName='BusinessManage-addPos' data-pageNameZh='添加POS' >添加POS终端</button>
+							</a>
+							<a >
+							<button class="btn btn-primary btn-sm" id="BulkExport">批量导出</button>
+							</a>
+						</span>
+					</div>
+				</div>
+				<div class="box-body no-padding">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>终端信息</th>
+								<th>POS类型</th>
+								<th>应用系统</th>
+								<th>部署门店</th>
+								<th>被关联终端信息</th>
+								<th>状态</th>
+								<th>配置时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="dictList">
+
+						</tbody>
+					</table>
+
+				</div>
+				<div class="box-footer">
+					<div class="pagination no-margin pull-right" id="PosStorePage">
+						<a class="first" data-action="first">&laquo;</a>
+						<a class="previous" data-action="previous">&lsaquo;</a>
+						<input type="text" readonly="readonly" data-max-page="40" value="共0页" />
+						<a class="next" data-action="next">&rsaquo;</a>
+						<a class="last" data-action="last">&raquo;</a>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.box -->
+
+		</section>
+		<!--选择-->
+		<section class="pop center-text" data-pop="pop2" id="pop2">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="box-title" id="modifyMenu">选择商户</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="signupForm1" method="get" action="">
+								<!--内容-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label">商户名称搜索：</label>
+									<div class="col-sm-4">
+										<input type="" class="form-control" placeholder="" id="menName" name="menName">
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn btn-primary" id="ViewMerchant" name="ViewMerchant">查看</button>
+									</div>
+								</div>
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>商户信息</th>
+												<th>所属分公司</th>
+												<th>所在地</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody id="MerchantList">
+										</tbody>
+									</table>
+									<div class="box-footer">
+										<div class="pagination no-margin pull-right" id="businessPage">
+											<a href="#" class="first" data-action="first">&laquo;</a>
+											<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+											<input type="text" readonly="readonly" data-max-page="40" />
+											<a href="#" class="next" data-action="next">&rsaquo;</a>
+											<a href="#" class="last" data-action="last">&raquo;</a>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center">共<span id="TotalNumber"></span>条记录</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="pop center-text" data-pop="pop5" id="pop5">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+									<span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">POS所属合作方</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="signupForm" method="get" action="">
+								<div class="form-group">
+									<label class="col-xs-2 control-label">POS商户号：</label>
+									<div class="col-xs-3">
+										<input type="text" class="form-control" id="merchaCode" name="merchaCode" placeholder="" maxlength="15">
+									</div>
+								</div>
+								<div class="form-group">
+									<span class="text-gray col-xs-2 col-xs-offset-2">POS商户号为15位商户编号</span>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">POS终端号：</label>
+									<div class="col-xs-3">
+										<input type="text" id="termCode1" class="form-control" name="termCode" placeholder="" maxlength="8">
+									</div>
+								</div>
+								<div class="form-group hideGroup">
+									<label class="col-xs-2 control-label">应用系统：</label>
+									<div class="col-xs-8 checkboxLH payChannel">
+										<!--<label><input type="radio" data-value='0' name="s" checked="checked"/>allpay　</label>
+								<label><input type="radio" data-value='1' name="s"/>浦发　</label>
+								<label><input type="radio" data-value='2' name="s"/>荣邦　</label>
+								<label><input type="radio" data-value='3' name="s"/>银盛　</label>-->
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">状态：</label>
+									<div class="col-xs-1">
+										<label for="kai"><input type="checkbox" id="kai" name="kai"/>开启</label>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close">取消</button>
+							<button type="button" class="btn btn-primary" id="passbtn1">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+		<script src="../../plugins/daterangepicker/moment.min.js"></script>
+		<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/common/regularHelper.js"></script>
+		<script src="../../plugins/jQueryValidate/additional-methods.min.js"></script>
+
+		<!--本页面需要的JS文件-->
+
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../plugins/common/timeHelper.js"></script>
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../interfaceJs/businessAgentServer.js"></script>
+		<script src="../../interfaceJs/businessPosServer.js"></script>
+		<script src="../../plugins/common/dataValueHelper.js"></script>
+		<script src="../../js/BusinessManage/PosStoreSet.js"></script>
+
+		<script>
+			timeHelper.singleDatePickers('#reservation1');
+			timeHelper.singleDatePickers('#reservation2');
+		</script>
+		<!--tbody的展示信息-->
+		<script id="dictListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>
+					{{termCode}}(PID)
+					<br /> {{merchCode}}(YID)
+				</td>
+				<td class="postype" data-code='{{posType}}'>
+					{{posTypeName}}
+				</td>
+				<td data-id='{{payChannel}}'>{{payChannelName}}</td>
+				<td data-storeId='{{storeId}}'>
+
+					{{storeName}}
+				</td>
+				<td>
+					{{superTermCode}}(PID)
+					<br /> {{superMerchCode}}(YID)
+				</td>
+				<td data-id='{{terminalState}}'>{{isStart}}</td>
+				<td data-time='{{posCreateTime}}'>
+					{{time}}
+				</td>
+				<td>
+					<span class="label label-info update jump" data-pageName='BusinessManage-updatePos' data-pageNameZh='修改POS' data-id='{{posId}}' data-param="?id={{posId}}">修改</span>
+					<span class="label label-info super" data-id='{{posId}}' data-store='{{storeId}}' data-merchant='{{merchantId}}' data-id='{{posId}}' data-postype='{{posType}}' data-payChannel='{{payChannel}}' style="display: none;">关联</span>
+					<span class="label label-info delete" data-id='{{posId}}' data-type='{{posType}}'>删除</span>
+				</td>
+			</tr>
+			{{/lists}}
+
+		</script>
+		<!--列表模版-->
+		<script id="MerchantListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>
+					{{mhtName}}
+					<br>
+					<span class="text-gray">{{mhtIndustry}}</span>
+				</td>
+				<td>
+					{{branchName}}
+					<br>
+					<span class="text-gray">{{agentLevelName}}</span>
+				</td>
+				<td>{{mhtAddress}}</td>
+				<td>
+					<span class="label label-info Selection" data-mhtId='{{mhtId}}' data-mhtName='{{mhtName}}' data-mhtShortName='{{mhtShortName}}'>选取</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+	</body>
+
+</html>

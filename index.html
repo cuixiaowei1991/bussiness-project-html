@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>业务系统</title>
+		<meta name="keywords" content="关键字">
+		<meta name="description" content="描述">
+		<link rel="stylesheet" href="plugins/theme/css/custom-bootstrap.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+
+		<style>
+			*:not(.fa) {
+				font-family: '微软雅黑', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+			}
+		</style>
+	</head>
+
+	<body class="theme fixed">
+		<div class="wrapper">
+			<header class="main-header">
+				<a href="index.html" class="logo">
+					<span class="logo-lg"><img src="plugins/theme/img/all-pay-logo.png"><b>ALL-PAY.cn</b></span>
+				</a>
+				<nav class="navbar navbar-static-top" role="navigation">
+					<a href="#" class="sidebar-toggle fa fa-bars" data-toggle="offcanvas" role="button">
+						<span class="sr-only">导航隐藏按钮</span>
+					</a>
+
+					<div class="navbar-custom-menu">
+						<!--顶部用户信息-->
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="#"><i class="fa fa-user"></i> 管理员</a>
+							</li>
+							<li>
+								<a data-pageName="setting">未签约</a>
+							</li>
+							<li>
+								<a id="exit"><i class="fa fa-power-off "></i></a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<aside class="main-sidebar">
+				<section class="sidebar">
+					<!--左侧主菜单-->
+					<ul class="sidebar-menu" id="admin">
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-home"></i><span>商户管理</span><i class="fa fa-angle-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li>
+									<a data-pageName="MerchantManage-MerchantList"><i class="fa fa-circle-o"></i>商户列表</a>
+								</li>
+								<li>
+									<a data-pageName="MerchantManage-MerchantAdd"><i class="fa fa-circle-o"></i>新增商户</a>
+								</li>
+								<li>
+									<a data-pageName="MerchantManage-MerchantFunctionSet"><i class="fa fa-circle-o"></i>商户设置</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-gear"></i><span>门店管理</span><i class="fa fa-angle-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li>
+									<a data-pageName="StoreManage-StoreList"><i class="fa fa-circle-o"></i>门店列表</a>
+								</li>
+								<li>
+									<a data-pageName="StoreManage-StoreAdd"><i class="fa fa-circle-o"></i>新增门店</a>
+								</li>
+
+							</ul>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-tags"></i> <span>业务管理</span> <i class="fa fa-angle-left pull-right"></i>
+							</a>
+
+							<ul class="treeview-menu">
+								<li>
+									<a data-pageName="BusinessManage-PayBusinesList"><i class="fa fa-circle-o"></i>支付业务签约管理</a>
+								</li>
+								<li>
+									<a data-pageName="BusinessManage-PosStoreSet"><i class="fa fa-circle-o"></i>门店pos配置管理</a>
+								</li>
+								<li>
+									<a data-pageName="BusinessManage-TerminalMenuSet"><i class="fa fa-circle-o"></i>终端菜单配置管理</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fa fa-cutlery"></i> <span>代理合作方管理</span> <i class="fa fa-angle-left pull-right"></i>
+							</a>
+
+							<ul class="treeview-menu">
+								<li>
+									<a data-pageName="AgentPartnerManage-AgentList"><i class="fa fa-circle-o"></i>代理商列表</a>
+								</li>
+								<li>
+									<a data-pageName="AgentPartnerManage-AgentAdd"><i class="fa fa-circle-o"></i>新增代理商</a>
+								</li>
+								<li>
+									<a data-pageName="AgentPartnerManage-AgentFunctionSet"><i class="fa fa-circle-o"></i>代理商设置</a>
+								</li>
+								<li>
+									<a data-pageName="AgentPartnerManage-PartnerList"><i class="fa fa-circle-o"></i>合作方列表</a>
+								</li>
+								<li>
+									<a data-pageName="AgentPartnerManage-PartnerAdd"><i class="fa fa-circle-o"></i>新增合作方</a>
+								</li>
+							</ul>
+						</li>
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-list"></i><span>TMS终端管理</span> <i class="fa fa-angle-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li id="">
+									<a data-pageName="TmsManage-TmsList"><i class="fa fa-circle-o"></i>TMS列表</a>
+								</li>
+								<li>
+									<a data-pageName="TmsManage-TmsAdd"><i class="fa fa-circle-o"></i>新增TMS信息</a>
+								</li>
+							</ul>
+						</li>
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-list"></i><span> 导入管理</span> <i class="fa fa-angle-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li id="">
+									<a data-pageName="ImportManage-Import"><i class="fa fa-circle-o"></i>导入</a>
+								</li>
+							</ul>
+						</li>
+						<li class="treeview">
+							<a href="#">
+								<i class="fa fa-shield"></i> <span>第三方管理</span> <i class="fa fa-angle-left pull-right"></i>
+							</a>
+							<ul class="treeview-menu">
+								<li>
+									<a href="#">
+										<i class="fa fa-reorder"></i> <span>威富通管理</span> <i class="fa fa-angle-left pull-right"></i>
+									</a>
+									<ul class="treeview-menu">
+										<li id="">
+											<a data-pageName="SwiftpassManage-SwiftpassMerchantList"><i class="fa fa-circle-o"></i>威富通商户列表</a>
+										</li>
+										<li id="">
+											<a data-pageName="SwiftpassManage-SwiftpassMerchantAdd"><i class="fa fa-circle-o"></i>新增威富通信息</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-reorder"></i> <span>微信管理</span> <i class="fa fa-angle-left pull-right"></i>
+									</a>
+									<ul class="treeview-menu">
+										<li id="">
+											<a data-pageName="WechatManage-WechatManage"><i class="fa fa-circle-o"></i>微信管理</a>
+										</li>
+
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-reorder"></i> <span>阿里管理</span> <i class="fa fa-angle-left pull-right"></i>
+									</a>
+									<ul class="treeview-menu">
+										<li id="">
+											<a data-pageName="AliManage-KouBeiStoreContact"><i class="fa fa-circle-o"></i>口碑门店关联</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a data-pageName="setting">
+								<i class="fa fa-gear"></i> <span>设置</span>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</aside>
+			<div class="content-wrapper">
+				<div id="moreNavBox">
+					<!--超宽缩小功能，待开发-->
+					<div class="moreNav " data-nav="left"><i class="fa fa-angle-double-left"></i></div>
+					<ul class="nav nav-tabs " id="indexTab"></ul>
+					<div class="moreNav " data-nav="right"><i class="fa fa-angle-double-right"></i></div>
+					<div class="noMore">
+						<p></p>
+					</div>
+				</div>
+				<div class="tab-content" id="iframeBox" style="width: 100%;height: 100%"></div>
+			</div>
+			<footer class="main-footer">
+				<div class="pull-right hidden-xs">
+					<b>V </b> 2.0
+				</div>
+				北京众联享付科技股份有限公司 Tel:（8610）82055266 Add: 北京市西城区新街口外大街28号院 15号楼 100088
+			</footer>
+		</div>
+
+		<script src="./plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="./plugins/slimScroll/jquery.slimscroll.min.js"></script>
+		<script src="plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="plugins/theme/js/app.min.js"></script>
+		<script src="plugins/common/common.js"></script>
+		<script src="plugins/theme/js/index_flot.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>新增商户设置</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+		</style>
+	</head>
+
+	<body>
+		<section class="content">
+			<h2 class="page-header">新增商户设置</h2>
+			<div class="box">
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="box-header ">
+					<form class="form-horizontal" id="signupForm" method="get" action="">
+						<div class="form-group">
+							<label class="col-xs-2 control-label">*选择商户：</label>
+							<div class="col-xs-4">
+								<input type="text" class="form-control" placeholder="" id="mhtName" name="" disabled="disabled">
+							</div>
+							<div class="col-xs-4">
+								<button type="button" class="btn btn-primary" id="Choice" data-pop="pop2">选择</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">*功能设置：</label>
+
+							<div class="col-xs-4">
+								<label class="control-label">
+									<input type="checkbox" id="SelectAll" value="1">全部选中 &nbsp;&nbsp;&nbsp;</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-10 col-xs-offset-2">
+								<div class="box box-solid">
+									<div class="box-body" id="callBackData">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-offset-2 col-xs-6">
+								<button type="button" class="btn btn-primary" id="SubmitSetup">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- /.box-header -->
+			</div>
+			<!-- /.box -->
+		</section>
+		<!--选择-->
+		<section class="pop center-text" data-pop="pop2" id="pop2">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="box-title" id="modifyMenu">选择商户</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="signupForm" method="get" action="">
+								<!--内容-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label">商户名称搜索：</label>
+									<div class="col-sm-4">
+										<input type="" class="form-control" placeholder="" id="menName" name="menName">
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn btn-primary" id="ViewMerchant" name="ViewMerchant">查看</button>
+									</div>
+								</div>
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>商户信息</th>
+												<th>所属分公司</th>
+												<th>所在地</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody id="MerchantList">
+										</tbody>
+									</table>
+									<div class="box-footer">
+										<div class="pagination no-margin pull-right" id="businessPage">
+											<a href="#" class="first" data-action="first">&laquo;</a>
+											<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+											<input type="text" readonly="readonly" data-max-page="40" />
+											<a href="#" class="next" data-action="next">&rsaquo;</a>
+											<a href="#" class="last" data-action="last">&raquo;</a>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center">共<span id="TotalNumber"></span>条记录</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+
+		<!--本页面需要的脚本-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../interfaceJs/shopUserServer.js"></script>
+		<script src="../../js/MerchantManage/MerchantFunctionSet.js"></script>
+		<!--列表模版-->
+		<script id="MerchantListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>
+					{{mhtName}}
+					<br>
+					<span class="text-gray">{{mhtIndustry}}</span>
+				</td>
+				<td>
+					{{branchName}}
+					<br>
+					<span class="text-gray">{{agentLevelName}}</span>
+				</td>
+				<td>{{mhtAddress}}</td>
+				<td>
+					<span class="label label-info Selection" data-mhtId={{mhtId}} data-mhtName={{mhtName}} data-mhtShortName={{mhtShortName}}>选取</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+		<!--功能设置列表模版-->
+		<script id="callBacklist" type="x-tmpl-mustache">
+			{{#lists}}
+			<p>
+				<input type="checkbox" id="{{funcTopMenuId}}" data-funcTopMenuId="{{funcTopMenuId}}">
+				<label for="{{funcTopMenuId}}" class="badge">{{funcTopMenuName}}</label>
+			</p>
+			<div class="row">
+				<ul class="list-x">
+					{{#list}}
+					<li class="col-xs-4 col-md-3">
+						<input type="checkbox" id="{{funcId}}" data-funcId="{{funcId}}" data-menuId="{{menuId}}" data-systemId="{{systemId}}" data-funcType="{{funcType}}">
+						<label for="{{funcId}}">{{funcName}}</label>
+					</li>
+					{{/list}}
+				</ul>
+			</div>
+			{{/lists}}
+		</script>
+	</body>
+
+</html>

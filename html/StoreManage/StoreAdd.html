@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>添加门店</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+		<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+		<style type="text/css">
+			#container {
+				min-width: 500px;
+				min-height: 300px;
+			}
+		</style>
+	</head>
+
+	<body onload="initMap()">
+		<section class="content">
+			<h2 class="page-header">添加门店</h2>
+			<div class="box">
+				<div class="box-header">
+					<form class="form-horizontal" id="SignupForm" method="get" action="">
+						<div class="form-group">
+							<label class="col-xs-2 control-label"><span class="text-danger">*</span>选择商户/品牌：</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="mhtName" name="mhtName" disabled="disabled">
+							</div>
+							<div class="col-xs-1">
+								<button type="button" class="btn btn-primary" data-pop="pop2" name="pop2" id="BtnSelect">选择</button>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-2 control-label"><span class="text-danger">*</span>门店名称：</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="storeName" name="storeName" maxlength="128">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-2 control-label">门店简称：</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="storeShortName" name="storeShortName" maxlength="128">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-2 control-label"><span class="text-danger">*</span>POS显示门店名称：</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="posShopName" name="posShopName" maxlength="128">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-2 control-label">联系电话：</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="servicePhone" name="servicePhone" maxlength="11">
+							</div>
+						</div>
+					</form>
+
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label class="col-xs-2 control-label">地址：</label>
+							<div class="col-xs-8">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat province" name="province">省</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="nameprovince">
+										<span class="caret"></span>
+										<span class="sr-only">省</span>
+									</button>
+									<ul class="dropdown-menu" id="province" role="menu">
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat city" name="city">市</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecity">
+										<span class="caret"></span>
+										<span class="sr-only">市</span>
+									</button>
+									<ul class="dropdown-menu" id="city" role="menu">
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat county" name="county">县</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecounty">
+										<span class="caret"></span>
+										<span class="sr-only">县</span>
+									</button>
+									<ul class="dropdown-menu" id="county" role="menu">
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-xs-3 col-xs-offset-2">
+								<input type="text" class="form-control" placeholder="请输入详细地址" id="storeAddress" name="storeAddress" maxlength="128">
+							</div>
+							<div class="col-xs-3">
+								<button class="btn btn-sm btn-primary" type="button" id="codeAddress" name="btncodeAddress">地图标注</button>
+								<div class="pull-right">纬度:<span id="lng"></span></div>
+								<div class="pull-right">经度:<span id="lat"></span>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-8 col-xs-offset-2">
+								<div class="col-xs-10" id="container"></div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">状态：</label>
+							<div class="col-xs-2">
+								<label class="control-label">
+									<input type="checkbox" id="storeStatus" name="namestoreStatus" checked="ture">启用</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-1 col-xs-offset-2">
+								<button type="submit" class="btn btn-sm btn-primary" id="SubmitCreate" name="btnSubmitCreate">提交创建</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.box-header -->
+			</div>
+			<!-- /.box -->
+		</section>
+		<!--选择-->
+		<section class="pop center-text" data-pop="pop2" id="pop2">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close" name="namebut">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title " id="modifyMenu">选择商户</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-horizontal">
+								<!--内容-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label">商户名称搜索：</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" placeholder="" id="menName" name="btnmenName">
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn btn-primary" id="ViewMerchant" name="ViewMerchant">查看</button>
+									</div>
+								</div>
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>商户信息</th>
+												<th>所属分公司</th>
+												<th>所在地</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody id="MerchantList">
+
+										</tbody>
+									</table>
+									<div class="box-footer ">
+										<div class="pagination no-margin pull-right">
+											<a href="#" class="first" data-action="first">&laquo;</a>
+											<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+											<input type="text" readonly="readonly" data-max-page="40" name="inputnm" />
+											<a href="#" class="next" data-action="next">&rsaquo;</a>
+											<a href="#" class="last" data-action="last">&raquo;</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center">共<span id="TotalNumber"></span>条记录</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/jQueryValidate/additional-methods.min.js"></script>
+		<!--本页面需要的JS文件-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/regularHelper.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/regionHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../js/StoreManage/StoreAdd.js"></script>
+		<script>
+			regionHelper.regionDownBoxUlLi("#city", "#province", "#county", ".city", ".province", ".county");
+			$.validator.setDefaults({
+				debug: true
+			});
+			 //定义地图，标记数组
+			var geocoder, map, marker = null;
+			var markersArray = [];
+			var initMap = function() {
+					var center = new qq.maps.LatLng(39.916527, 116.397128);
+					map = new qq.maps.Map(document.getElementById('container'), {
+						center: center,
+						zoom: 13
+					});
+					//添加监听事件   获取鼠标单击事件
+					qq.maps.event.addListener(map, 'click', function(event) {
+						deleteOverlays();
+						var marker = new qq.maps.Marker({
+							position: event.latLng,
+							draggable: true,
+							map: map
+						});
+						markersArray.push(marker);
+						var latLng = event.latLng;
+						geocoder.getAddress(latLng);
+						qq.maps.event.addListener(map, 'click', function(event) {
+							marker.setMap(null);
+						});
+						//设置Marker停止拖动事件
+						qq.maps.event.addListener(marker, 'dragend', function() {
+							var latLng = marker.getPosition();
+							//调用获取位置方法
+							geocoder.getAddress(latLng);
+						});
+					});
+					//调用地址解析类
+					geocoder = new qq.maps.Geocoder({
+						complete: function(result) {
+							deleteOverlays();
+							map.setCenter(result.detail.location);
+							var marker = new qq.maps.Marker({
+								map: map,
+								position: result.detail.location
+							});
+							markersArray.push(marker);
+							//获取经纬度数值   按照,分割字符串 取出前两位 解析成浮点数
+							var latLng = result.detail.location;
+							lat = latLng.getLat().toFixed(5); //经度
+							lng = latLng.getLng().toFixed(5); //纬度
+							document.getElementById("lat").innerHTML = lat;
+							document.getElementById("lng").innerHTML = lng;
+						}
+					});
+				}
+				//删除覆盖物
+
+			function deleteOverlays() {
+				if (markersArray) {
+					for (i in markersArray) {
+						markersArray[i].setMap(null);
+					}
+					markersArray.length = 0;
+				}
+			}
+
+			function codeAddress() {
+				//修改时经纬度定位
+				//			var latLng=new qq.maps.LatLng(39.908709,116.397519);
+				//			geocoder.getAddress(latLng);
+			}
+		</script>
+		<!--列表模版-->
+		<script id="MerchantListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>
+					{{mhtName}}
+					<br>
+					<span class="text-gray">{{mhtIndustry}}</span>
+				</td>
+				<td>
+					{{branchName}}
+					<br>
+					<span class="text-gray">{{agentLevelName}}</span>
+				</td>
+				<td>{{mhtAddress}}</td>
+				<td>
+					<span class="label label-info Selection" data-mhtId={{mhtId}} data-mhtName={{mhtName}} data-mhtShortName={{mhtShortName}}>选取</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+	</body>
+
+</html>

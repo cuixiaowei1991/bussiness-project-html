@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>修改代理商</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+	</head>
+	<!-- Main content -->
+	<section class="content">
+		<h2 class="page-header">修改代理商</h2>
+		<div class="box">
+			<div class="box-header ">
+				<form class="form-horizontal" id="signupForm" method="get" action="">
+					<div class="form-group">
+						<label class="col-xs-2 control-label">代理商全称：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入代理商全称" id="agentName" name="agentName" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">代理商简称：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入代理商简称" id="agentShortName" name="agentShortName" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">代理商联系人：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入代理商联系人" id="legalPersonName" name="legalPersonName" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">联系人手机号：</label>
+						<div class="col-xs-4 text-muted">
+							<input type="text" class="form-control" placeholder="输入联系人手机号" id="lagalPersonPhone" name="lagalPersonPhone" maxlength="11">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-4 text-gray">
+							该手机号默认为登陆代理商平台账号，初始密码“111111”
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-xs-2 control-label">拓展人：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入拓展人" id="shopPeopleName" name="shopPeopleName" maxlength="30">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">代理商类型：</label>
+						<div class="col-xs-8">
+							<div class="radio" id="">
+								<label>
+									<input type="radio" name="agentType" id="person1" value="0" checked>个人代理&nbsp;&nbsp;
+
+								</label>
+								<label>
+									<input type="radio" name="agentType" id="person2" value="1">公司代理
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">代理商级别：</label>
+						<div class="col-xs-8">
+							<div class="radio" id="">
+								<label for="level1" id="classFirst">
+									<input type="radio" name="optionsRadios" id="level1" value="0" checked>一级&nbsp;&nbsp;
+								</label>
+								<label for="level2" id="classSecond">
+									<input type="radio" name="optionsRadios" id="level2" value="1">二级
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="form-group" id="oneShow" style="display: block;">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-8">
+							<span id="">所属分子公司：</span>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat agentParentId1" data-value="" name="agentParentId1">请选择分子公司</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namedropdown">
+									<span class="caret"></span>
+									<span class="sr-only"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="agentParentId1">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="form-group" id="twoShow" style="display: none;">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-8">
+							<span id="">所属上级代理：</span>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat agentParentId2" name="agentParentId2" data-value="">请选择代理商</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namedrop">
+									<span class="caret"></span>
+									<span class="sr-only"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="agentParentId2">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">地址：</label>
+						<div class="col-xs-8">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat province" data-value="" name="province">省</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namedropflat">
+									<span class="caret"></span>
+									<span class="sr-only">省</span>
+								</button>
+								<ul class="dropdown-menu" id="province" role="menu">
+
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat city" name="city">请选择</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namedropd">
+									<span class="caret"></span>
+									<span class="sr-only">请选择</span>
+								</button>
+								<ul class="dropdown-menu" id="city" role="menu">
+
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat county" name="county">请选择</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namedrop">
+									<span class="caret"></span>
+									<span class="sr-only">请选择</span>
+								</button>
+								<ul class="dropdown-menu" id="county" role="menu">
+
+								</ul>
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入详细地址" id="agentAddress" name="agentAddress" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">代理商接入ID</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入代理商接入ID" id="allpayid" name="allpayid" maxlength="32">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">代理商接入Key：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入代理商接入Key" id="allpayKey" name="allpayKey" maxlength="32">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">状态：</label>
+
+						<div class="col-xs-4">
+							<label class="control-label">
+								<input type="checkbox" id="agentState" checked="true" name="nameagentstate">启用</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-2 col-xs-6">
+							<button type="submit" class="btn btn-primary" id="submitBtn" name="btnname">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /.box-header -->
+		</div>
+		<!-- /.box -->
+	</section>
+	<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+	<script src="../../plugins/theme/js/app.min.js"></script>
+	<script src="../../plugins/common/common.js"></script>
+	<script src="../../plugins/theme/js/index_flot.js"></script>
+
+	<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+	<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+	<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+	<script src="../../plugins/common/regularHelper.js"></script>
+
+	<!--本页面需要的脚本-->
+	<script src="../../plugins/common/mustache.min.js"></script>
+	<script src="../../plugins/common/dataHelper.js"></script>
+	<script src="../../plugins/common/regionHelper.js"></script>
+	<script src="../../plugins/common/controlsHelper.js"></script>
+	<script src="../../interfaceJs/agentUserServer.js"></script>
+	<script src="../../interfaceJs/businessAgentServer.js"></script>
+	<script src="../../interfaceJs/systemUserServer.js"></script>
+	<script src="../../js/AgentPartnerManage/AgentEdit.js"></script>
+	<script>
+		regionHelper.regionDownBoxUlLi("#city", "#province", "#county", ".city", ".province", ".county");
+	</script>
+	</body>
+
+</html>

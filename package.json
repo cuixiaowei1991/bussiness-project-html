@@ -1,0 +1,17 @@
+{
+  "name": "businesspowersyshtml",
+  "version": "1.0.0",
+  "description": "BusinessPowerSys_Html",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chi.yong",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-uglify": "^2.0.0"
+  }
+}

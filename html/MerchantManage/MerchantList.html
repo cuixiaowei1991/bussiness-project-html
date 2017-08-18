@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>商户列表</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+		</style>
+	</head>
+
+	<body>
+		<section class="content">
+			<h2 class="page-header">商户列表</h2>
+			<div class="box">
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="box-header ">
+					<form class="form-horizontal" id="signupForm" method="get" action="">
+						<div class="col-xs-12">
+							<div class="col-xs-5">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">商户名称搜索：</label>
+									<div class="col-xs-8">
+										<input type="text" class="form-control" placeholder="输入商户/品牌名称" id="mhtName" name="mhtName">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="col-xs-5">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">所属行业：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat mhtIndustry" name="mhtIndustry">请选择行业</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only">请选择行业</span>
+											</button>
+											<ul class="dropdown-menu" id="mhtIndustry" role="menu">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-7">
+								<div class="form-group">
+									<label class="col-xs-3 control-label">所在地：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat province">省</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+												<span class="caret"></span>
+												<span class="sr-only">省</span>
+											</button>
+											<ul class="dropdown-menu" id="province" role="menu">
+											</ul>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat city">市</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+												<span class="caret"></span>
+												<span class="sr-only">市</span>
+											</button>
+											<ul class="dropdown-menu" id="city" role="menu">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="col-xs-5">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">所属分子公司：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat mhtBeanchCompId" name="mhtBeanchCompId" data-value=''>请选择分公司</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu" id="mhtBeanchCompId">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-7">
+								<div class="form-group">
+									<label class="col-xs-3 control-label">所属代理商：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat FirstAgent" name="FirstAgent" data-value=''>请选择代理商</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu" id="FirstAgent">
+
+											</ul>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat TwoAgents" name="TwoAgents" data-value=''>请选择代理商</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu" id="TwoAgents">
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="col-xs-5">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">已开通业务：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat mhtOpenChannel" name="mhtOpenChannel" data-value=''>请选择业务</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only">选择业务</span>
+											</button>
+											<ul class="dropdown-menu" id="mhtOpenChannel" role="menu">
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-7">
+								<div class="form-group">
+									<label class="col-xs-3 control-label">录入时间：</label>
+									<div class="col-xs-8">
+										<div class="input-group col-xs-5 pull-left">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" readonly class="form-control" id="reservation1" placeholder="开始日期">
+										</div>
+										<div class="pull-left timeAnd">至</div>
+										<div class="input-group col-xs-5 pull-left">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar"></i>
+											</div>
+											<input type="text" readonly class="form-control" id="reservation2" placeholder="截止日期">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="col-xs-5">
+								<div class="form-group">
+									<label class="col-xs-4 control-label">商户状态：</label>
+									<div class="col-xs-8">
+										<div class="btn-group">
+											<button type="button" class="btn btn-default btn-flat mhtApproveStatus" name="mhtApproveStatus">请选择状态</button>
+											<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+												<span class="caret"></span>
+												<span class="sr-only"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu" id="mhtApproveStatus">
+											</ul>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-offset-2">
+								<button type="button" class="btn btn-primary" id="query">查询</button>
+								<label class="text-blue text-right" id="tipsError"></label>
+							</div>
+						</div>
+					</form>
+					<div>
+						<span class="text-muted">共 <span id="infoTatal"></span>条，每页<span>20</span>条</span>
+						<div class="pull-right">
+							<button class="btn btn-primary btn-sm" id="BulkExport">批量导出</button>
+							<button  class="btn btn-primary btn-sm jump" data-pageName='MerchantManage-MerchantAdd' data-pageNameZh='添加商户'>添加商户</button>
+						</div>
+
+					</div>
+					<div class="box-body no-padding">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>商户信息</th>
+									<th>门店数量</th>
+									<th>所属代理</th>
+									<th>录入时间</th>
+									<th>录入者</th>
+									<th>已开业务</th>
+									<th>审核状态</th>
+									<th>启用状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="MerchantList">
+
+							</tbody>
+						</table>
+						<div class="box-footer ">
+							<div class="pagination no-margin pull-right">
+								<a href="#" class="first" data-action="first">&laquo;</a>
+								<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+								<input type="text" readonly="readonly" data-max-page="40" />
+								<a href="#" class="next" data-action="next">&rsaquo;</a>
+								<a href="#" class="last" data-action="last">&raquo;</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.box-header -->
+			</div>
+			<!-- /.box -->
+		</section>
+		<!--驳回理由-->
+		<section class="pop center-text" id="ReasonRetion">
+			<div class="pop-body">
+				<div class="box">
+					<form class="form-horizontal" id="signupform1" method="get" action="">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-pop="close" name="close">
+									<span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">驳回理由</h4>
+							</div>
+							<div class="modal-body">
+								<!--内容-->
+								<div class="form-horizontal">
+									<div class="form-group">
+										<label class="col-sm-2 control-label">驳回理由</label>
+										<div class="col-sm-4">
+											<input type="text" class="form-control" name="btnReject" placeholder="请输入驳回理由" id="btnReject">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default pull-left" data-dismiss="modal" data-pop="close" name="name">取消</button>
+								<button type="button" class="btn btn-primary" id="ResetPassbtn" name="ResetPassbtn" data-mhtId=''>确定</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+		<!--删除-->
+		<div class="modal fade" role="dialog" id="popdelete">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title text-red" id="">删除</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-4 control-label center-text">是否确定删除此条信息？</label>
+							</div>
+
+						</div>
+					</div>
+					<div class="modal-footer text-right">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="sureDeleteBtn">确定</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+		<script src="../../plugins/daterangepicker/moment.min.js"></script>
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+
+		<!--本页面需要的脚本-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/regionHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../plugins/common/dataValueHelper.js"></script>
+		<script src="../../plugins/common/timeHelper.js"></script>
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessAgentServer.js"></script>
+		<script src="../../interfaceJs/shopUserServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../js/MerchantManage/MerchantList.js"></script>
+		<script>
+			regionHelper.regionDownBoxUlLi("#city", "#province", "#county", ".city", ".province", ".county");
+			$.validator.setDefaults({
+				debug: true
+			});
+
+			function fromValidate() {
+				return $("#signupform1").validate({
+					/* 设置验证规则 */
+					rules: {
+						btnReject: {
+							required: true
+						}
+					},
+					/**/
+					/* 设置错误信息 */
+					messages: {
+						btnReject: {
+							required: "请输入驳回理由"
+						}
+					},
+					/* 设置错误信息提示DOM */
+					errorPlacement: function(error, element) {
+						error.appendTo(element.parent());
+					},
+				});
+			};
+			(function() {
+				timePicker();
+			})();
+
+			function timePicker() {
+				$('#reservation1').daterangepicker({
+					singleDatePicker: true
+				}, function(start, end, label) { //格式化日期显示框
+					if (!start._isValid) {
+						$('#reservation1').val(startDateTemp.format('YYYY-MM-DD'));
+					} else {
+						$('#reservation1').val(start.format('YYYY-MM-DD'));
+					}
+				}).click(function() {
+					$(document).keydown(function(e) {
+						if (e.keyCode == 17 || e.keyCode == 18) {
+							return false;
+						}
+					});
+				});
+				$('#reservation2').daterangepicker({
+					singleDatePicker: true
+				}, function(start, end, label) { //格式化日期显示框
+					if (!start._isValid) {
+						$('#reservation2').val(startDateTemp.format('YYYY-MM-DD'));
+					} else {
+						$('#reservation2').val(start.format('YYYY-MM-DD'));
+					}
+				}).click(function() {
+					$(document).keydown(function(e) {
+						if (e.keyCode == 17 || e.keyCode == 18) {
+							return false;
+						}
+					});
+				});
+			}
+		</script>
+		<!--列表模版-->
+		<script id="MerchantListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>{{mhtName}}</td>
+				<td>{{storeCount}}</td>
+				<td>{{mhtAgentName}}</td>
+				<td>{{mhtCreateTime}}</td>
+				<td>{{mhtCreateName}}</td>
+				<td>{{openChannelCount}}</td>
+				<td>{{mhtApproveStatus}}</td>
+				<td data-mhtState="{{mhtState}}"></td>
+				<td data-Status="{{mhtApproveStatus}}">
+					<span class="label label-danger btnDelete" data-toggle="modal" data-target="#popdelete" data-mhtId={{mhtId}}>删除</span>
+					<span class="label label-primary  jump" data-pageName='MerchantManage-MerchantEdit' data-pageNameZh='修改商户' data-mhtId={{mhtId}} data-param="?merchantId={{mhtId}}">修改</span>
+					<span class="label label-info jump" data-pageName='MerchantManage-MerchantView' data-pageNameZh='查看商户详情页面' data-mhtId={{mhtId}} data-param="?merchantId={{mhtId}}">查看</span>
+					<span class="label label-info btnAdopt none" data-mhtId={{mhtId}}>通过</span>
+					<span class="label label-info btnReject none" data-mhtId={{mhtId}}>驳回</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+	</body>
+
+</html>

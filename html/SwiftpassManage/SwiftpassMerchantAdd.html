@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>新增威富通商户</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+
+	</head>
+
+	<body>
+		<section class="content">
+			<h2 class="page-header">新增威富通商户</h2>
+			<div class="box">
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="box-header ">
+					<form class="form-horizontal" id="signupForm" method="get">
+						<div class="basicInfo">
+							<div class="box-header page-header">
+								<h3 class="box-title">基本信息</h3>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">商户名称*：</label>
+								<div class="col-xs-4">
+									<input type="text" class="form-control" placeholder="" maxlength="50" id="merchantId" name="merchantId" disabled="disabled">
+								</div>
+								<div class="col-xs-4">
+									<button type="button" class="btn btn-primary selectShop" name="1" id="selectShop" data-pop="pop1">选择</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">开通银行：</label>
+								<div class="col-xs-4" id="wftBank">
+									<!--<label class="control-label">
+									<input type="radio" name="typeName" id="" value="1" checked="checked">中信银行 &nbsp;&nbsp;&nbsp;</label>
+								<label class="control-label">
+									<input type="radio" name="typeName" id="" value="2">兴业银行</label>-->
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">威富通行业*：</label>
+								<div class="col-xs-5">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default btn-flat industry" name="industry">全部行业</button>
+										<button type="button" class="btn btn-default btn-flat dropdown-toggle" name="1" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+										<ul class="dropdown-menu" role="menu" id="industry">
+											<li>
+												<a>全部行业</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">省市*：</label>
+								<div class="col-xs-8">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default btn-flat province" name="province">省</button>
+										<button type="button" class="btn btn-default btn-flat dropdown-toggle" name="1" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">省</span>
+									</button>
+										<ul class="dropdown-menu" id="province" role="menu">
+
+										</ul>
+									</div>
+									<div class="btn-group">
+										<button type="button" class="btn btn-default btn-flat city" name="city">市</button>
+										<button type="button" class="btn btn-default btn-flat dropdown-toggle" name="1" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">市</span>
+									</button>
+										<ul class="dropdown-menu" id="city" role="menu">
+
+										</ul>
+									</div>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">地址：</label>
+								<div class="col-xs-4">
+									<input type="text" class="form-control" placeholder="输入详细地址" id="address" maxlength="50" name="address">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">收款人姓名*：</label>
+								<div class="col-xs-4">
+									<input type="text" class="form-control" placeholder="输入收款人姓名" id="principal" maxlength="10" name="principal">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">收款人邮箱*：</label>
+								<div class="col-xs-4">
+									<input type="text" class="form-control" placeholder="输入收款人邮箱" id="principalEmail" maxlength="20" name="principalEmail">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">商户状态*：</label>
+								<div class="col-xs-4">
+									<label class="control-label">
+									<input type="checkbox" checked="checked" id="isState" name="isState">启用 </label>
+								</div>
+							</div>
+						</div>
+						<div class="accountInfo">
+							<div class="box-header page-header">
+								<h3 class="box-title">账户信息</h3>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">结算户名*：</label>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder="" id="bankAccountName" name="bankAccountName" maxlength="20">
+								</div>
+								<label class="col-xs-2 control-label">银行卡号*：</label>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder="" id="bankCardNum" name="bankCardNum" maxlength="30">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">开户银行*：</label>
+
+								<div class="col-xs-3">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default btn-flat bankId" name="bankId">全部银行</button>
+										<button type="button" class="btn btn-default btn-flat dropdown-toggle" name='1' data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">全部银行</span>
+									</button>
+										<ul class="dropdown-menu" id="bankId" role="menu">
+
+										</ul>
+									</div>
+								</div>
+								<label class="col-xs-2 control-label">账户类型*：</label>
+								<div class="col-xs-4" id="accountType">
+									<label class="control-label">
+									<input type="radio" name="1" id="" value="1" checked="checked">个人 &nbsp;&nbsp;&nbsp;</label>
+									<label class="control-label">
+									<input type="radio" name="1" id="" value="2">企业</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">联行号*：</label>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder="" maxlength="50" id="lhBankCode" name="lhBankCode" disabled="disabled">
+								</div>
+								<div class="col-xs-1">
+									<button type="button" class="btn btn-primary selectBank" id="selectBank" name="1" data-pop="pop1">选择</button>
+								</div>
+								<label class="col-xs-1 control-label">支行名*：</label>
+
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder="" id="lhBankName" name="lhBankName" maxlength="50" disabled="disabled">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">开户支行地址*：</label>
+								<div class="col-xs-8">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default btn-flat provinceLh" name="provinceLh">省</button>
+										<button type="button" class="btn btn-default btn-flat dropdown-toggle" name="1" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">省</span>
+									</button>
+										<ul class="dropdown-menu" id="provinceLh" role="menu">
+
+										</ul>
+									</div>
+									<div class="btn-group">
+										<button type="button" class="btn btn-default btn-flat cityLh" name="cityLh">市</button>
+										<button type="button" class="btn btn-default btn-flat dropdown-toggle" name="1" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">市</span>
+									</button>
+										<ul class="dropdown-menu" id="cityLh" role="menu">
+
+										</ul>
+									</div>
+
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">持卡人证件类型*：</label>
+								<div class="col-xs-3">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default btn-flat idCardType" name="idCardType">证件类型</button>
+										<button type="button" class="btn btn-default btn-flat dropdown-toggle" name="1" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">证件类型</span>
+									</button>
+										<ul class="dropdown-menu" id="idCardType" role="menu">
+											<li data-value='1'>
+												<a>身份证</a>
+											</li>
+											<li data-value='2'>
+												<a>护照</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<label class="col-xs-2 control-label">持卡人证件号码*：</label>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder="" id="idCardNo" name="idCardNo" maxlength="30">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label">持卡人地址：</label>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder="" id="idCardAddress" name="idCardAddress" maxlength="50">
+								</div>
+								<label class="col-xs-2 control-label">手机号码*：</label>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder="" id="idCardPhone" name="idCardPhone" maxlength="11">
+								</div>
+
+							</div>
+
+						</div>
+						<div class="billInfo">
+							<div class="box-header page-header">
+								<h3 class="box-title">费率信息</h3>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label text-red">支付宝结算费率*：</label>
+
+								<div class="col-xs-4">
+									<input type="text" class="form-control" placeholder="" id="wftWXBill" name="wftWXBill" maxlength="11">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label text-red">微信结算费率*：</label>
+
+								<div class="col-xs-4">
+									<input type="text" class="form-control" placeholder="" id="wftZFBBill" name="wftZFBBill" maxlength="10">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-2 control-label text-red">第三方交易码（微信）：</label>
+
+								<div class="col-xs-4">
+									<input type="text" class="form-control" placeholder="" id="thirdCode" name="thirdCode" maxlength="10">
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">&nbsp;</div>
+						<div class="form-group">
+							<div class="col-xs-offset-2 col-xs-6">
+								<button type="button" class="btn btn-primary" id="submit" name="submit">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- /.box-header -->
+			</div>
+			<!-- /.box -->
+		</section>
+		<section class="pop center-text" data-pop="pop2" id="pop2">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title " id="modifyMenu">选择商户</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" method="get" action="">
+								<!--内容-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label">商户名称搜索：</label>
+									<div class="col-sm-4">
+										<input type="" class="form-control" placeholder="" id="menName" name="menName">
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn btn-primary" id="selectBtn" name="1">查询</button>
+									</div>
+								</div>
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>商户信息</th>
+												<th>所属分公司</th>
+												<th>所在地</th>
+												<th>操作</th>
+
+											</tr>
+										</thead>
+										<tbody id="merchantList">
+										</tbody>
+									</table>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center">共<span id="countsPage">0</span>条记录</p>
+							<div class="pagination no-margin pull-right" id="shopPagination">
+								<a class="first" data-action="first">&laquo;</a>
+								<a class="previous" data-action="previous">&lsaquo;</a>
+								<input type="text" readonly="readonly" data-max-page="40" value='共0页' />
+								<a class="next" data-action="next">&rsaquo;</a>
+								<a class="last" data-action="last">&raquo;</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="pop center-text" data-pop="pop1" id="pop1">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title " id="modifyMenu">选择联行号</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" method="get" action="">
+								<!--内容-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label">联行号搜索：</label>
+									<div class="col-sm-4">
+										<input type="" class="form-control" placeholder="联行号搜索" id="bankCode" name="bankCode">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">联行名称搜索：</label>
+									<div class="col-sm-4">
+										<input type="" class="form-control" placeholder="联行名称搜索" id="bankName" name="bankName">
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn btn-primary" id="selectBtnBank">查询</button>
+									</div>
+								</div>
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>支付行行号</th>
+												<th>支付行行名</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody id="bankList">
+										</tbody>
+									</table>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center">共<span id="countsPageBank">0</span>条记录</p>
+							<div class="pagination no-margin pull-right" id="bankPagination">
+								<a class="first" data-action="first">&laquo;</a>
+								<a class="previous" data-action="previous">&lsaquo;</a>
+								<input type="text" readonly="readonly" data-max-page="40" value='共0页' />
+								<a class="next" data-action="next">&rsaquo;</a>
+								<a class="last" data-action="last">&raquo;</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/common/regularHelper.js"></script>
+		<script src="../../plugins/jQueryValidate/additional-methods.min.js"></script>
+
+		<!--本页面需要的脚本-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../plugins/common/dataValueHelper.js"></script>
+		<script src="../../plugins/common/industryFunctionHelper.js"></script>
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessAgentServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../interfaceJs/wftInfoServer.js"></script>
+		<script src="../../js/SwiftpassManage/SwiftpassMerchantAdd.js"></script>
+
+		<script id="merchantListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td id="{{mhtId}}">{{mhtName}}
+					<br><span class="text-gray">{{mhtShortName}}-{{mhtIndustry}}</span></td>
+				<td id="{{branchId}}">{{branchName}}
+					<br><span class="text-gray">{{agentLevel}}</span></td>
+				<td>{{mhtAddress}}</td>
+				<td>
+					<span id="{{mhtId}}" name="{{mhtName}}" type="button" class="label label-info selected">选取</span>
+				</td>
+			</tr>
+			{{/lists}}
+
+		</script>
+		<script id="bankListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>{{bankCode}}</td>
+				<td>{{bankName}}</td>
+				<td>
+					<span id="{{bankCode}}" name="{{bankName}}" type="button" class="label label-info selectedBank">选取</span>
+				</td>
+			</tr>
+			{{/lists}}
+
+		</script>
+		<script>
+			$.validator.setDefaults({
+				debug: true
+			});
+			industryFunctionHelper.setIndustryCode("#industry", ".industry");
+			industryFunctionHelper.setwftRegionUlLi("#city", "#province", ".city", ".province");
+			industryFunctionHelper.setwftRegionUlLi("#cityLh", "#provinceLh", ".cityLh", ".provinceLh");
+			industryFunctionHelper.setIndustryBank("#bankId", ".bankId")
+		</script>
+	</body>
+
+</html>

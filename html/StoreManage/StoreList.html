@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>门店列表</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+
+	</head>
+
+	<body id="bodyE">
+		<section class="content">
+			<h2 class="page-header">门店列表</h2>
+
+			<div class="box">
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="box-header">
+					<form class="form-horizontal" id="signupForm" method="">
+						<div class="form-group">
+							<label class="col-xs-2 control-label">门店名称搜索：</label>
+
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="storeName" name="storeName" maxlength="50">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">所属商户：</label>
+
+							<div class="col-xs-3">
+								<input type="text" class="form-control" placeholder="" id="mhtName" data-mhtId="" name="" maxlength="" disabled="disabled" data-mhtId="">
+
+							</div>
+							<div class="col-xs-3">
+								<button type="button" class="btn btn-primary" id="BtnSelect" data-pop="pop2">选择</button>
+								<button type="button" class="btn btn-primary" id="BtneEmpty">清空</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">所在地：</label>
+							<div class="col-xs-8">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat province">省</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">省</span>
+									</button>
+									<ul class="dropdown-menu" id="province" role="menu">
+
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat city">市</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">市</span>
+									</button>
+									<ul class="dropdown-menu" id="city" role="menu">
+
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat county">县</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">县</span>
+									</button>
+									<ul class="dropdown-menu" id="county" role="menu">
+
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-2 control-label">门店状态：</label>
+							<div class="col-xs-8">
+								<div class="radio" id="">
+									<label for="storeStatus1">
+										<input type="radio" name="shopType" id="storeStatus1" value="1" checked>启用&nbsp;
+
+									</label>
+									<label for="storeStatus2">
+										<input type="radio" name="shopType" id="storeStatus2" value="0">停用
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-offset-2 col-xs-3">
+								<button class="btn btn-sm btn-primary" type="button" id="searchBtn">查询</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<!--<label class="text-blue text-right" id="BulkExport">批量导出xls格式</label>-->
+							</div>
+						</div>
+					</form>
+					<h2 class="page-header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+
+					<div>
+						<span class="text-muted">共<span class="total">0</span>条，每页<span>20</span>条 </span>
+						<span class="pull-right">
+							<button class="btn btn-primary btn-sm" id="BulkExport">批量导出</button>
+							<button class="btn btn-primary btn-sm jump" data-pageName='StoreManage-StoreAdd' data-pageNameZh='添加门店'>添加门店</button>	
+						</span>
+					</div>
+				</div>
+				<div class="box-body no-padding">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>门店名称</th>
+								<th>所属商户</th>
+								<th>所在地</th>
+								<th>录入时间</th>
+								<th>录入者</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="dictList">
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div class="pagination no-margin pull-right" id="shotePage">
+						<a href="#" class="first" data-action="first">&laquo;</a>
+						<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+						<input type="text" readonly="readonly" data-max-page="40" />
+						<a href="#" class="next" data-action="next">&rsaquo;</a>
+						<a href="#" class="last" data-action="last">&raquo;</a>
+					</div>
+				</div>
+			</div>
+			<!-- /.box -->
+			</div>
+		</section>
+		<!--选择-->
+		<section class="pop center-text" data-pop="pop2" id="pop2">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="box-title" id="modifyMenu">选择商户</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" id="signupForm" method="get" action="">
+								<!--内容-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label">商户名称搜索：</label>
+									<div class="col-sm-4">
+										<input type="" class="form-control" placeholder="" id="menName" name="menName">
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn btn-primary" id="ViewMerchant" name="ViewMerchant">查看</button>
+									</div>
+								</div>
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>商户信息</th>
+												<th>所属分公司</th>
+												<th>所在地</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody id="MerchantList">
+										</tbody>
+									</table>
+									<div class="box-footer">
+										<div class="pagination no-margin pull-right" id="businessPage">
+											<a href="#" class="first" data-action="first">&laquo;</a>
+											<a href="#" class="previous" data-action="previous">&lsaquo;</a>
+											<input type="text" readonly="readonly" data-max-page="40" />
+											<a href="#" class="next" data-action="next">&rsaquo;</a>
+											<a href="#" class="last" data-action="last">&raquo;</a>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center">共<span id="TotalNumber"></span>条记录</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--删除-->
+		<div class="modal fade" role="dialog" id="popdelete">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title text-red" id="">删除</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-horizontal">
+							<div class="form-group">
+								<label class="col-sm-4 control-label center-text">是否确定删除此条信息？</label>
+							</div>
+
+						</div>
+					</div>
+					<div class="modal-footer text-right">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="sureDeleteBtn">确定</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+		<script src="../../plugins/daterangepicker/moment.min.js"></script>
+		<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+
+		<!--本页面需要的脚本-->
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/regionHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../js/StoreManage/StoreList.js"></script>
+		<script>
+			regionHelper.regionDownBoxUlLi("#city", "#province", "#county", ".city", ".province", ".county");
+		</script>
+		<!--tbody的展示信息-->
+		<script id="dictListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>{{storeName}}</td>
+				<td>{{merchantName}}</td>
+				<td>{{storeAddress}}</td>
+				<td>{{storeCreateTime}}</td>
+				<td>{{storeCreateName}}</td>
+				<td data-storeStatus={{storeStatus}}></td>
+				<td>
+					<span class="label label-danger btnDelete" data-toggle="modal" data-target="#popdelete" data-storeId="{{storeId}}">删除</span>
+					<span  class="label label-primary jump" data-pageName='StoreManage-StoreEdit' data-pageNameZh='修改门店' data-storeId="{{storeId}}" data-merchantId="{{merchantId}}" data-param="?storeId={{storeId}}">修改</span>
+					<span class="label label-primary jump" data-pageName='StoreManage-StoreView' data-pageNameZh='查看门店详情页面' data-storeId="{{storeId}}" data-merchantId="{{merchantId}}" data-param="?storeId={{storeId}}">查看</span>
+					<span  class="label label-primary jump" data-pageName='BusinessManage-addPos' data-pageNameZh='添加POS' data-storeId="{{storeId}}" data-storeName="{{storeName}}" data-merchantId="{{merchantId}}" 
+						data-merchantName="{{merchantName}}" data-param="?storeId={{storeId}}&storeName={{storeName}}&merchantId={{merchantId}}&merchantName={{merchantName}}">POS配置</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+
+		<!--列表模版-->
+		<script id="MerchantListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td>
+					{{mhtName}}
+					<br>
+					<span class="text-gray">{{mhtIndustry}}</span>
+				</td>
+				<td>
+					{{branchName}}
+					<br>
+					<span class="text-gray">{{agentLevelName}}</span>
+				</td>
+				<td>{{mhtAddress}}</td>
+				<td>
+					<span class="label label-info Selection" data-mhtId={{mhtId}} data-mhtName={{mhtName}} data-mhtShortName={{mhtShortName}}>选取</span>
+				</td>
+			</tr>
+			{{/lists}}
+		</script>
+	</body>
+
+</html>

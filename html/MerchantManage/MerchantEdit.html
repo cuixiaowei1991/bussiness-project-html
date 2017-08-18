@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>修改商户</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+	</head>
+	<!-- Main content -->
+	<section class="content">
+		<h2 class="page-header">修改商户</h2>
+		<div class="box">
+			<div class="box-header ">
+				<form class="form-horizontal" id="signupForm" method="get" action="">
+					<div class="form-group">
+						<label class="col-xs-2 control-label">*所属代理商：</label>
+						<div class="col-xs-8">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat BranchOffice" name="BranchOffice" data-value=''>请选择分公司</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+									<span class="caret"></span>
+									<span class="sr-only"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="BranchOffice">
+									<li>
+										<a href="#">请选择分公司</a>
+									</li>
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat FirstAgent" name="FirstAgent">请选择代理商</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+									<span class="caret"></span>
+									<span class="sr-only"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="FirstAgent">
+
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat TwoAgents" name="TwoAgents" data-value=''>请选择代理商</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+									<span class="caret"></span>
+									<span class="sr-only"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" id="TwoAgents">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">*商户企业全称：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入商户企业全称" id="mhtName" name="mhtName" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">*品牌/简称：</label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入品牌/简称" id="mhtShortName" name="mhtShortName" maxlength="128">
+						</div>
+						<!--<div class="col-xs-4">
+							<label class="control-label">
+								<input type="checkbox" id="isCreateStore" name="isCreateStore" checked="true">同时创建门店</label>
+						</div>-->
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">地址：</label>
+						<div class="col-xs-8">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat province" name="province">省</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown"name="nameprovince">
+									<span class="caret"></span>
+									<span class="sr-only">省</span>
+								</button>
+								<ul class="dropdown-menu" id="province" role="menu">
+
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat city" name="city">市</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecity">
+									<span class="caret"></span>
+									<span class="sr-only">市</span>
+								</button>
+								<ul class="dropdown-menu" id="city" role="menu">
+
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat county" name="county">县</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="namecounty">
+									<span class="caret"></span>
+									<span class="sr-only">县</span>
+								</button>
+								<ul class="dropdown-menu" id="county" role="menu">
+
+								</ul>
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label"></label>
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="输入详细地址" id="mhtAddress" name="mhtAddress" maxlength="128">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-2 control-label">所属行业：</label>
+
+						<div class="col-xs-8">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default btn-flat mhtIndustry" name="mhtIndustry" data-value=''>全部信息</button>
+								<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+									<span class="caret"></span>
+									<span class="sr-only">全部信息</span>
+								</button>
+								<ul class="dropdown-menu" id="mhtIndustry" role="menu">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--<div class="form-group" id="menuColumn">
+						<label class="col-xs-2 control-label">*管理员：</label>
+
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="请输入管理员" id="mhtManager" name="mhtManager" maxlength="30" disabled="disabled">
+						</div>
+					</div>-->
+
+					<!--<div class="form-group">
+						<label class="col-xs-2 control-label">*管理员手机号：</label>
+
+						<div class="col-xs-4">
+							<input type="text" class="form-control" placeholder="请输入管理员手机号" id="mhtManagerPhone" name="mhtManagerPhone" maxlength="11" disabled="disabled">
+						</div>
+					</div>-->
+					<div class="form-group">
+						<label class="col-xs-2 control-label"></label>
+
+						<div class="col-xs-4 text-muted">
+							该手机号默认为登录账号，密码默认“111111”
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-xs-2 control-label">是否启用：</label>
+
+						<div class="col-xs-4">
+							<label class="control-label">
+								<input type="checkbox" id="mhtState" name="mhtState" checked="">启用</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-2 col-xs-6">
+							<button type="button" class="btn btn-primary" id="resourceadd" name="resourceadd">提交修改</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<!-- /.box-header -->
+		</div>
+		<!-- /.box -->
+	</section>
+	<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+	<script src="../../plugins/theme/js/app.min.js"></script>
+	<script src="../../plugins/common/common.js"></script>
+	<script src="../../plugins/theme/js/index_flot.js"></script>
+
+	<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+	<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+	<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+	<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+	<script src="../../plugins/common/regularHelper.js"></script>
+
+	<!--本页面需要的脚本-->
+	<script src="../../plugins/common/mustache.min.js"></script>
+	<script src="../../plugins/common/dataHelper.js"></script>
+	<script src="../../plugins/common/regionHelper.js"></script>
+	<script src="../../plugins/common/controlsHelper.js"></script>
+	<script src="../../plugins/common/dataValueHelper.js"></script>
+	<script src="../../interfaceJs/systemUserServer.js"></script>
+	<script src="../../interfaceJs/businessAgentServer.js"></script>
+	<script src="../../interfaceJs/businessShopServer.js"></script>
+	<script src="../../js/MerchantManage/MerchantEdit.js"></script>
+	<script>
+		regionHelper.regionDownBoxUlLi("#city", "#province", "#county", ".city", ".province", ".county");
+		
+		$.validator.setDefaults({
+			debug: true
+		});
+
+		function fromValidate() {
+			return $("#signupForm").validate({
+				/* 设置验证规则 */
+				rules: {
+					BranchOffice: {
+						isRequired: ["请选择分公司"]
+					},
+					FirstAgent: {
+						isRequired: ["请选择代理商"]
+					},
+					mhtName: {
+						required: true,
+						isName: true
+					},
+					mhtShortName: {
+						required: true,
+						isName: true
+					},
+					mhtManager: {
+						required: true,
+						isName: true
+					},
+					mhtManagerPhone: {
+						required: true,
+						isMobile: true
+					}
+				},
+				/**/
+				/* 设置错误信息 */
+				messages: {
+					BranchOffice: {
+						isRequired: "请选择分公司"
+					},
+					FirstAgent: {
+						isRequired: "请选择代理商"
+					},
+					mhtName: {
+						required: "请输入商户企业全称",
+						isName: "请正确填写商户企业全称、不能有特殊符号、不能有空格"
+					},
+					mhtShortName: {
+						required: "请输入品牌/简称",
+						isName: "请正确填写品牌/简称、不能有特殊符号、不能有空格"
+					},
+					mhtManager: {
+						required: "请输入管理员",
+						isName: "请正确填写管理员、不能有特殊符号、不能有空格"
+					},
+					mhtManager: {
+						required: "请输入手机号",
+						isMobile: "请输入一个有效的手机号码"
+					},
+					mhtManagerPhone: {
+						required: "请输入手机号",
+						isMobile: "请输入一个有效的手机号码"
+					}
+				},
+				/* 设置错误信息提示DOM */
+				errorPlacement: function(error, element) {
+					error.appendTo(element.parent());
+				},
+			});
+		};
+	</script>
+	</body>
+
+</html>

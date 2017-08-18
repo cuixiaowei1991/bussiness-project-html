@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<meta name="author" content="All-Union.com.cn">
+		<title>修改POS</title>
+		<link rel="stylesheet" href="../../plugins/theme/css/custom-bootstrap-inside.css">
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="../../plugins/Pagination/css/pagination.css" />
+	</head>
+
+	<body>
+		<section class="content">
+			<h2 class="page-header">修改POS</h2>
+
+			<div class="box">
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="col-xs-12">&nbsp;</div>
+				<div class="box-header">
+					<form class="form-horizontal" id="signupForm" autocomplete="off" method="get" action="">
+						<div class="form-group">
+							<label class="col-xs-2 control-label">POS类型：</label>
+							<div class="col-xs-8 checkboxLH posType">
+								<!--<label><input type="radio" data-value="0" checked="checked"/>传统Pos　</label>
+								<label><input type="radio" data-value="1"/>PCPos　</label>
+								<label><input type="radio" data-value="2"/>虚拟Pos　</label>
+								<label><input type="radio" data-value="3"/>软Pos　</label>-->
+							</div>
+
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">所属商户：</label>
+							<div class="col-xs-3">
+								<input type="text" id="merchantId" name="merchantId" class="form-control" placeholder="" disabled="disabled">
+							</div>
+							<button class="btn btn-sm btn-primary selectShop" name='selectShop'  type="button">选择</button>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">选择门店：</label>
+							<div class="col-xs-8">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat storeId" name="storeId">全部</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="storeId">
+										<!--<li>ff</li>
+										<li>nnn</li>-->
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group rPos" style="display: none;">
+							<label class="col-xs-2 control-label">指定人员：</label>
+							<div class="col-xs-8">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat assignUser" name="assignUser">全部</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="assignUser">
+										<!--<li>ff</li>
+										<li>nnn</li>-->
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-2 control-label">POS商户号：</label>
+							<div class="col-xs-3">
+								<input type="text" class="form-control" id="merchaCode" name="merchaCode" placeholder="" maxlength="15">
+							</div>
+						</div>
+						<div class="form-group">
+							<span class="text-gray col-xs-2 col-xs-offset-2">POS商户号为15位商户编号</span>
+						</div>
+						<div class="form-group hideGroup">
+							<label class="col-xs-2 control-label">应用系统：</label>
+							<div class="col-xs-8 checkboxLH payChannel">
+								<!--<label><input type="radio" data-value='0' name="s" checked="checked"/>allpay　</label>
+								<label><input type="radio" data-value='1' name="s"/>浦发　</label>
+								<label><input type="radio" data-value='2' name="s"/>荣邦　</label>
+								<label><input type="radio" data-value='3' name="s"/>银盛　</label>-->
+
+							</div>
+
+						</div>
+
+						<div class="form-group hideGroup">
+							<label class="col-xs-2 control-label">POS合作方：</label>
+							<div class="col-xs-8">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat branchId" name="branchId">全部分公司</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="branchId">
+										<!--<li>ff</li>
+										<li>nnn</li>-->
+									</ul>
+								</div>
+
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat level" name="level">合作方级别</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="level">
+										<li data-value='1'>
+											<a>一级合作方</a>
+										</li>
+										<li data-value='2'>
+											<a>二级合作方</a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat parterId" name="parterId">全部合作方</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="parterId">
+										<!--<li>ff</li>
+										<li>nnn</li>-->
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">POS终端号：</label>
+							<div class="col-xs-3">
+								<input type="text" id="termCode" class="form-control" name="termCode" placeholder="" maxlength="8">
+							</div>
+							<!--<div class="col-xs-2">
+								<div class="input-group rposHide">
+									<input type="text" class="form-control" id="codeCount" name="codeCount" maxlength="3" placeholder="" />
+									<span class="input-group-addon">条数</span>
+								</div>
+							</div>-->
+						</div>
+
+						<div class="form-group hideGroup">
+							<div class="col-xs-1 col-xs-offset-2">
+								<label for="has"><input type="checkbox" id="isHas" name="isHas"/>有配件</label>
+
+							</div>
+							<div class="col-xs-6 peijGroup" style="display: none;">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat level1" name="level1">合作方级别</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="level1">
+										<li data-value='1'>
+											<a>一级合作方</a>
+										</li>
+										<li data-value='2'>
+											<a>二级合作方</a>
+										</li>
+									</ul>
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn btn-default btn-flat pjParterId" name="pjParterId">全部配件合作方</button>
+									<button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" name="name">
+										<span class="caret"></span>
+										<span class="sr-only"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" id="pjParterId">
+										<!--<li>ff</li>
+										<li>nnn</li>-->
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-2 control-label">状态：</label>
+							<div class="col-xs-1">
+								<label for="kai"><input type="checkbox" id="kai" name="kai"/>开启</label>
+							</div>
+						</div>
+						<!--<h2 class="page-header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>-->
+						<div class="box-header"></div>
+						<div class="form-group">
+							<div class="col-xs-offset-2 col-xs-3">
+								<button type="button" class="btn btn-sm btn-primary" name="sureBtn" id="sureBtn">提交</button>&nbsp;&nbsp;
+								<!--<button type="button" class="btn btn-sm btn-default" name="cancelBtn" id="cancelBtn">取消</button>-->
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</section>
+		<!-- /.box -->
+		<!--选择-->
+		<section class="pop center-text" data-pop="pop2" id="pop2">
+			<div class="pop-body">
+				<div class="box">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-pop="close">
+								<span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title " id="modifyMenu">选择商户</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal" method="get" action="">
+								<!--内容-->
+								<div class="form-group">
+									<label class="col-sm-2 control-label">商户名称搜索：</label>
+									<div class="col-sm-4">
+										<input type="" class="form-control" placeholder="" id="menName" name="menName">
+									</div>
+									<div class="col-sm-4">
+										<button type="button" class="btn btn-primary" id="selectBtn">查询</button>
+									</div>
+								</div>
+								<div class="box-body no-padding">
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>商户信息</th>
+												<th>所属分公司</th>
+												<th>所在地</th>
+												<th>操作</th>
+
+											</tr>
+										</thead>
+										<tbody id="merchantList">
+											<!--<tr>
+												<td>北京众联享付科技股份有限公司
+													<br><span class="text-gray">众联科技-餐饮</span></td>
+												<td>北京乐享惠科技有限公司
+													<br><span class="text-gray">一级代理</span></td>
+												<td>北京-北京市</td>
+												<td>
+													<button class="btn btn-default">选取</button>
+												</td>
+											</tr>
+											<tr>
+												<td>北京众联享付科技股份有限公司
+													<br><span class="text-gray">众联科技-餐饮</span></td>
+												<td>北京乐享惠科技有限公司
+													<br><span class="text-gray">一级代理</span></td>
+												<td>北京-北京市</td>
+												<td>
+													<button class="btn btn-default">选取</button>
+												</td>
+											</tr>
+											<tr>
+												<td>北京众联享付科技股份有限公司
+													<br><span class="text-gray">众联科技-餐饮</span></td>
+												<td>北京乐享惠科技有限公司
+													<br><span class="text-gray">一级代理</span></td>
+												<td>北京-北京市</td>
+												<td>
+													<button class="btn btn-default">选取</button>
+												</td>
+											</tr>-->
+										</tbody>
+									</table>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<p class="text-center">共<span id="countsPage">0</span>条记录</p>
+							<div class="pagination no-margin pull-right">
+								<a class="first" data-action="first">&laquo;</a>
+								<a class="previous" data-action="previous">&lsaquo;</a>
+								<input type="text" readonly="readonly" data-max-page="40" value='共0页' />
+								<a class="next" data-action="next">&rsaquo;</a>
+								<a class="last" data-action="last">&raquo;</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+		<script src="../../plugins/theme/bootstrap/bootstrap.min.js"></script>
+		<script src="../../plugins/theme/js/app.min.js"></script>
+		<script src="../../plugins/common/common.js"></script>
+		<script src="../../plugins/theme/js/index_flot.js"></script>
+		<script src="../../plugins/Pagination/js/pagination.min.js"></script>
+
+		<script src="../../plugins/jQueryfileupload/jquery.ui.widget.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.fileupload.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.iframe-transport.js"></script>
+		<script src="../../plugins/jQueryfileupload/jquery.xdr-transport.js"></script>
+		<script src="../../plugins/daterangepicker/moment.min.js"></script>
+		<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
+		<script src="../../plugins/datepicker/bootstrap-datepicker.js"></script>
+		<script src="../../plugins/jQueryValidate/jquery.validate.min.js"></script>
+		<script src="../../plugins/jQueryValidate/messages_zh.js"></script>
+		<script src="../../plugins/common/regularHelper.js"></script>
+		<script src="../../plugins/jQueryValidate/additional-methods.min.js"></script>
+		<!--本页面需要的JS文件-->
+
+		<script src="../../plugins/common/mustache.min.js"></script>
+		<script src="../../plugins/common/dataHelper.js"></script>
+		<script src="../../plugins/common/controlsHelper.js"></script>
+		<script src="../../plugins/common/dataValueHelper.js"></script>
+		<script src="../../interfaceJs/systemUserServer.js"></script>
+		<script src="../../interfaceJs/businessShopServer.js"></script>
+		<script src="../../interfaceJs/businessAgentServer.js"></script>
+		<script src="../../interfaceJs/businessPosServer.js"></script>
+		<script src="../../js/BusinessManage/updatePos.js"></script>
+		<script id="merchantListTemplate" type="x-tmpl-mustache">
+			{{#lists}}
+			<tr>
+				<td id="{{mhtId}}">{{mhtName}}
+					<br><span class="text-gray">{{mhtShortName}}-{{mhtIndustry}}</span></td>
+				<td id="{{branchId}}">{{branchName}}
+					<br><span class="text-gray">{{agentLevel}}</span></td>
+				<td>{{mhtAddress}}</td>
+				<td>
+					<span id="{{mhtId}}" name="{{mhtName}}" type="button" class="label label-info selected">选取</span>
+				</td>
+			</tr>
+			{{/lists}}
+
+		</script>
+		<script>
+			$.validator.setDefaults({
+				debug: true
+			});
+
+			function fromValidate() {
+				return $("#signupForm").validate({
+					/* 设置验证规则 */
+					rules: {
+						storeId: {
+							isRequired: ["全部门店"]
+						},
+						merchantId: {
+							required: true
+						},
+						merchaCode: {
+							required: true,
+							isInteger: true,
+							isFifteen:true
+						},
+						termCode: {
+							required: true,
+							isInteger: true,
+							isEight:true
+						},
+						codeCount: {
+							required: true,
+							isGEqInt: true
+						},
+						branchId: {
+							isRequired: function() {
+								var type = $(".posType").find("input[type='radio'][checked='checked']").attr('data-value');
+								if(type == '1' || type == '4') {
+									return ["全部分公司"];
+								} else {
+									return ["分公司"];
+								}
+
+							}
+						},
+						parterId: {
+							isRequired: function() {
+								var type = $(".posType").find("input[type='radio'][checked='checked']").attr('data-value');
+								if(type == '1' || type == '4') {
+									return ["全部合作方"];
+								} else {
+									return ["合作方"];
+								}
+							}
+						},
+						pjParterId: {
+							isRequired: function() {
+								if($("#isHas").attr('checked') == 'checked') {
+									return ["全部配件合作方"];
+								} else {
+									return ["合作方"];
+								}
+							}
+						}
+					},
+					/**/
+					/* 设置错误信息 */
+					messages: {
+						storeId: {
+							isRequired: "请选择门店"
+						},
+						merchantId: {
+							required: "请选择商户"
+						},
+						merchaCode: {
+							required: "请输入商户号",
+							isInteger: "商户号只能输入数字",
+							isFifteen:"请输入15位数字"
+						},
+						termCode: {
+							required: "请输入终端号",
+							isInteger: "终端只能输入数字",
+							isEight:"请输入8位数字"
+						},
+						codeCount: {
+							required: "请输入生成条数",
+							isGEqInt: "生成条数只能输入大于等于0的数字"
+						},
+						branchId: {
+							isRequired: "请选择分公司"
+						},
+						parterId: {
+							isRequired: "请选择合作方"
+						},
+						pjParterId: {
+							isRequired: "请选择配件合作方"
+						}
+					},
+					/* 设置错误信息提示DOM */
+					errorPlacement: function(error, element) {
+						error.appendTo(element.parent());
+					},
+				});
+			};
+		</script>
+
+	</body>
+
+</html>
